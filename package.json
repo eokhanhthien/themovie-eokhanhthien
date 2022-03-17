@@ -2,7 +2,7 @@
   "name": "themovie-eokhanhthien",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo",
+  
     
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",

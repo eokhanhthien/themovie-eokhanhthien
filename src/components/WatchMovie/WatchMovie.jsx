@@ -47,8 +47,12 @@ function WatchMovie(props) {
         
 
     },[episodeIdCurrent])
+
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
     
-console.log(linkVNSubtitle);
+// console.log(linkVNSubtitle);
 // console.log(subtitleCurrent);
     
 

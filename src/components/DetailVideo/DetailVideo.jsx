@@ -21,13 +21,14 @@ function WatchMovie(props) {
       }
    
  
-    })()
-
-    
+    })()   
   },[])
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
  
-  console.log(category,id,episodeId,definition)
+  // console.log(category,id,episodeId,definition)
     return (
         <div className="watchMovie-Container">
         <div className="watchMovie-header row">

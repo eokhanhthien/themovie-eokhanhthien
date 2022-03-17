@@ -85,7 +85,7 @@ function Home(props) {
           </div>
           <div className="col l-6 m-6 c-6 menu-navbar-mobie">
             <div className="Search-film-watch">
-            <i class="fas fa-bars icon-home-list"></i>
+            <i className="fas fa-bars icon-home-list"></i>
             </div>
           </div>
 
