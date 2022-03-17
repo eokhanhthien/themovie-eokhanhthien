@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
+import "./css/responsize.css"
+import "./css/FontAwesome.Pro.6.0.0.alpha3/fontawesome6/pro/css/all.min.css"
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import DieuHuongURL from './components/DieuHuongURL';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <DieuHuongURL></DieuHuongURL>
+    </Router>
+
   );
 }
 

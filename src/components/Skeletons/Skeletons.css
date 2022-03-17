@@ -1,0 +1,61 @@
+.img-banner{
+    width: 100%;
+    height: 100%;
+    background-color:#313947 ;
+    border-radius:6px;
+}
+
+.text-16px-skeletons{
+    width: 100%;
+    height: 16px;
+    background-color:#313947 ;
+    margin-left: 10px;
+}
+
+.img-thumbnail{
+    width: 120px;
+    height: 60px;
+    background-color:#313947 ;
+    border-radius:6px;
+}
+
+.img-movie{
+    width: 100%;
+    height: 100%;
+    background-color:#313947 ;
+    border-radius:6px;
+}
+.Home-film-img-Skeleton{
+    padding: 8px;
+}
+.img-Detail-Skeleton{
+    width: 100%;
+    height: 600px;
+    background-color:#313947 ;
+}
+
+.text-Name-detail-skeletons{
+    width: 360px;
+    height: 34px;
+    background-color:#313947 ;
+    margin: 10px 0;
+    border-radius:6px;
+
+}
+
+.SkeletonsLikeList-thumb{
+    width: 80px;
+    height: 86px;
+    background-color:#313947 ;
+}
+
+.SkeletonsLikeList-text{
+    width: 150px;
+    height: 20px;
+    background-color:#313947 ;
+
+}
+.SkeletonsLikeList-text-container{
+    padding-left: 20px;
+
+}

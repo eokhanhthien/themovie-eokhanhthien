@@ -1,0 +1,42 @@
+.container-watch {
+	padding: 20px 0;
+    background-color: #191A1F;
+
+}
+video {
+	width: 100%;
+}
+
+.Warning-video {
+    color: white;
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.Warning-video button {
+    padding: 0 6px;
+    color: #ff2a2a;
+    font-size: 14px;
+	cursor: pointer;
+}
+.Episodes-title {
+    color: white;
+    font-size: 24px;
+    margin: 20px 0 10px 0;
+}
+button.Episodes-btn {
+    padding: 8px;
+    width: 100%;
+    font-size: 16px;
+  
+    cursor: pointer;
+    background-color: #313239;
+    color: white;
+    border: 1px solid #313239;
+    border-radius: 2px;
+    margin-bottom: 16px;
+}
+
+.Episodes-btn-active{
+    background-color: #10B4FF !important;
+}

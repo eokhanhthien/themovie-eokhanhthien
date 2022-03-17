@@ -1,0 +1,170 @@
+.watchMovie-Container{
+    background-color: #191A1F;
+    padding: 28px 115px;
+    
+}
+
+.watchMovie-header{
+    height: 42px;
+
+}
+
+.watchMovie-header-home{
+    display: none;
+    padding: 16px;
+}
+
+.watchMovie-icon_film{
+    width: 32px;
+    height: 32px;
+}
+.watchMovie-icon_film img{
+    width: 100%;
+}
+
+.Search-film-input-watch {
+    width: 30%;
+    padding: 10px;
+    border: 2px solid #4B5563;
+    border-radius: 50px;
+    outline: none;
+    background-color: #191A1F;
+    color: white;
+}
+
+.Search-film-watch{
+    position: relative;
+    text-align: end;
+}
+
+.watchMovie-header.row {
+    margin-bottom: 28px;
+}
+.video-container{
+    width: 100%;
+    background-color: #1F2937;
+}
+
+.video-container img{
+    width: 100%;
+}
+.watch-img{
+    width: 70px;
+    height: 100px;
+}
+
+.watch-img img{
+    width: 100%;
+}
+
+.Similar-container {
+    padding-left: 60px ;
+    max-height: 600px;
+    overflow-y: scroll;
+}
+
+/* Scroll */
+.Similar-container::-webkit-scrollbar {
+    width: 8px;               /* width of the entire scrollbar */
+  }
+  
+  .Similar-container::-webkit-scrollbar-track {
+    background: #191A1F;        /* color of the tracking area */
+  }
+  
+  .Similar-container::-webkit-scrollbar-thumb {
+    background-color: #676969;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 1px solid #676969;  /* creates padding around scroll thumb */
+  }
+  
+  /* Scroll-end */
+
+.name-Video {
+    margin-top: 20px;
+    color: white;
+    font-size: 28px;
+}
+
+.video-Star{
+    height: 20px;
+    width: 20px;
+}
+.video-Star img{
+    width: 100%;
+}
+
+.m-l-20px{
+    margin-left: 20px;
+}
+
+.video-point {
+    color: white;
+    font-size: 18px;
+    line-height: 24px;
+    margin-left: 8px;
+}
+
+.tags-video{
+    margin-top: 10px;
+}
+
+.tag-item {
+    color: white;
+    font-size: 16px;
+    border: 1px solid #27282E;
+    border-radius: 19px;
+    padding: 4px 10px;
+    background-color: #27282E;
+}
+.description-video{
+    margin-top: 20px;
+    color: white;
+    font-size: 16px;
+}
+.comment-video {
+    margin-top: 40px;
+    font-size: 26px;
+    color: white;
+}
+.user-img-commnet{
+    width: 36px;
+    height: 36px;
+
+}
+
+.user-img-commnet img{
+    width: 100%;
+    border-radius: 50%;
+
+}
+.user-img-commnet-text {
+    color: white;
+    line-height: 40px;
+    margin-left: 12px;
+    font-size: 17px;
+}
+
+.border-commnet {
+    border: 1px solid #4B5563;
+    border-radius: 50px;
+    padding: 10px;
+    margin: 24px 0;
+}
+.Similar {
+    color: white;
+    font-size: 18px;
+    padding-left: 20px !important;
+}
+
+.btn-watch-now {
+    margin: 10px 0;
+}
+
+.btn-watch-now button {
+    padding: 6px;
+    cursor: pointer;
+}
+.watchMovie-header a{
+    text-decoration: none;
+}
