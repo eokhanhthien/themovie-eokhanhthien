@@ -28,6 +28,7 @@ function WatchMovie(props) {
     window.scrollTo(0, 0)
   }, [])
  
+  // console.log(dataDetail)
   // console.log(category,id,episodeId,definition)
     return (
         <div className="watchMovie-Container">
@@ -88,10 +89,15 @@ function WatchMovie(props) {
           </div>
         </div>
         <div className="tags-video row no-gutters">
-          <div className="tag-item">Adventure</div>
+          {
+            dataDetail && dataDetail.tagNameList.map((item,index)=>{
+              return (<div className="tag-item">{item}</div>)
+            })
+          }
+          {/* <div className="tag-item">Adventure</div>
           <div className="tag-item">Anime</div>
           <div className="tag-item">Comedy</div>
-          <div className="tag-item">Family</div>
+          <div className="tag-item">Family</div> */}
         </div>
         <div className="row col l-9">
           {dataDetail && <div className="description-video">{dataDetail.introduction}</div>}

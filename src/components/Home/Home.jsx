@@ -44,7 +44,7 @@ function Home(props) {
               sethomeTrending(dataHome.recommendItems[4].recommendContentVOList)
               sethomeHotDrama(dataHome.recommendItems[2].recommendContentVOList)
               sethomeDarkFairyTales(dataHome.recommendItems[6].recommendContentVOList)
-              sethomeNewestReleases(dataHome.recommendItems[7].recommendContentVOList)
+              sethomeNewestReleases(dataHome.recommendItems[5].recommendContentVOList)
               settopSearchhome(topSearch.list)
               SetisLoading(true);
             }
@@ -210,7 +210,7 @@ function Home(props) {
           </Swiper>:<SkeletonsMovie></SkeletonsMovie>}
 
 
-          <div className="Home-title">Anime</div>
+          <div className="Home-title">Classic</div>
           {isLoading ? 
             <Swiper   
             navigation={true} modules={[Navigation]}
