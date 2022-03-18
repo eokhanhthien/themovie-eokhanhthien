@@ -17,7 +17,7 @@ const getHome = {
                 "clienttype" : "ios_jike_default",
             },
         });
-        return axioGetDetail.get(`https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get?id=${id}&category=${category}`, {mode: 'cors'});
+        return axioGetDetail.get(`https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get?id=${id}&category=${category}`, {mode: 'no-cors'});
     },
 
     getMediaUrl(params) {
@@ -29,7 +29,7 @@ const getHome = {
                 "clienttype" : "ios_jike_default",
             },
         });
-        return axioGetMedia.get(`https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=${category}&contentId=${id}&episodeId=${episodeId}&definition=${definition}`, {mode: 'cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded',},withCredentials: false});
+        return axioGetMedia.get(`https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=${category}&contentId=${id}&episodeId=${episodeId}&definition=${definition}`, {mode: 'no-cors',withCredentials: false});
     },
 }
 
