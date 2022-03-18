@@ -35,7 +35,7 @@
 }
 
 .text-Name-detail-skeletons{
-    width: 360px;
+    width: 40%;
     height: 34px;
     background-color:#313947 ;
     margin: 10px 0;
@@ -58,4 +58,11 @@
 .SkeletonsLikeList-text-container{
     padding-left: 20px;
 
+}
+
+.Skeleton-Episodes{
+    width: 100%;
+    background-color:#313947 ;
+    height: 40px;
+    margin-bottom: 16px;
 }

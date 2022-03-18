@@ -169,3 +169,10 @@
 .watchMovie-header a{
     text-decoration: none;
 }
+
+.Home-title-detail {
+    color: white;
+    font-size: 26px;
+    margin: 32px 0 12px 0;
+    padding-left: 60px;
+}

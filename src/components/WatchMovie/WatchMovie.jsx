@@ -67,7 +67,6 @@ function WatchMovie(props) {
 
 
 
-
     return (
         <div className="container-watch">   
         <div className="grid wide">
@@ -108,18 +107,43 @@ function WatchMovie(props) {
     <div className='Episodes-title'>Episodes</div>
     <div className="row ">
       {
-        dataDetail && dataDetail.episodeVo.map((item,index)=>{
+        dataDetail ? dataDetail.episodeVo.map((item,index)=>{
           return (
             <div key={index} className='col l-1 m-2-4 c-2-4'>
           <button  
             onClick={()=>handleChangeEpisodes(item.id,index)}
             className={episodeIdCurrent == item.id ?'Episodes-btn Episodes-btn-active':'Episodes-btn col'}>{index+1}</button>
             </div>)
+        }) : [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map((item,index)=>{
+          return (
+            <div key={index} className='col l-1 m-2-4 c-2-4'>
+          <div  
+            className="Skeleton-Episodes"></div>
+            </div>)
         })
       }
     
     </div>
 
+       <div className="row no-gutters"> 
+          <div className="row no-gutters">
+            <div className="video-Star"><img src="/../image/star.png" alt="" /></div>
+           {dataDetail && <div className="video-point"> {dataDetail.score}</div> }  
+          </div>
+          <div className="row no-gutters">
+            <div className="video-Star m-l-20px"><img src="/../image/calendar.png" alt="" /></div>
+           {dataDetail && <div className="video-point"> {dataDetail.year}</div>   }
+          </div>
+        </div>
+        <div className="tags-video row no-gutters">
+          {
+            dataDetail && dataDetail.tagNameList.map((item,index)=>{
+              return (<div key={index} className="tag-item">{item}</div>)
+            })
+          }
+       
+        </div>
+        {dataDetail && <div className="description-video">{dataDetail.introduction}</div>}
           <div className="row no-gutters border-commnet">
             <div className="user-img-commnet"><img src="/../image/default-avatar.png" alt="" /></div>
             <div className="user-img-commnet-text"> You need to Sign in to comment</div>   

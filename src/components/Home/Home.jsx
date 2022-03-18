@@ -31,19 +31,20 @@ function Home(props) {
     const [homeDarkFairyTales,sethomeDarkFairyTales] = useState([]);
     const [homeNewestReleases,sethomeNewestReleases] = useState([]);
     const [topSearchhome,settopSearchhome] =useState([]);
+
     useEffect (()=>{
         (async function() {
             let dataHome= await getHome.getAll("/homePage/getHome" ,{
                 page:0,
             })
-
+    
             let topSearch = await getHome.getAll("/search/v1/searchLeaderboard")
 
             if(dataHome&&topSearch){
               sethomeBanner(dataHome.recommendItems[1].recommendContentVOList)
               sethomeTrending(dataHome.recommendItems[4].recommendContentVOList)
               sethomeHotDrama(dataHome.recommendItems[2].recommendContentVOList)
-              sethomeDarkFairyTales(dataHome.recommendItems[6].recommendContentVOList)
+              sethomeDarkFairyTales(dataHome.recommendItems[7].recommendContentVOList)
               sethomeNewestReleases(dataHome.recommendItems[5].recommendContentVOList)
               settopSearchhome(topSearch.list)
               SetisLoading(true);
@@ -57,7 +58,7 @@ function Home(props) {
 
     },[])
 
-    // console.log(homeTrending);
+
 
     return (
         <div className="Home">

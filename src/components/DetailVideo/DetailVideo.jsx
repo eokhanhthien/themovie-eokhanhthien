@@ -51,7 +51,7 @@ function WatchMovie(props) {
            {dataDetail ? <div className="video-container" ><img src={dataDetail.coverHorizontalUrl} alt="" /></div> : <div className="img-Detail-Skeleton" ></div>}
           </div>
           <div className="col l-3 m-12 c-12 ">
-            <div className="Home-title">Similar to this</div>
+            <div className="Home-title-detail">Similar to this</div>
            <div className='Similar-container'>
           {dataDetail ?  dataDetail.likeList.map((item,index)=>{
             return( 
@@ -91,13 +91,10 @@ function WatchMovie(props) {
         <div className="tags-video row no-gutters">
           {
             dataDetail && dataDetail.tagNameList.map((item,index)=>{
-              return (<div className="tag-item">{item}</div>)
+              return (<div key={index} className="tag-item">{item}</div>)
             })
           }
-          {/* <div className="tag-item">Adventure</div>
-          <div className="tag-item">Anime</div>
-          <div className="tag-item">Comedy</div>
-          <div className="tag-item">Family</div> */}
+       
         </div>
         <div className="row col l-9">
           {dataDetail && <div className="description-video">{dataDetail.introduction}</div>}
