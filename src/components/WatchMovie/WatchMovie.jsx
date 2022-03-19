@@ -52,7 +52,7 @@ function WatchMovie(props) {
       window.scrollTo(0, 0)
     }, [])
     
-// console.log(linkVNSubtitle);
+// console.log(dataDetail);
 // console.log(subtitleCurrent);
     
 

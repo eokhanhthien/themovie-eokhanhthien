@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import getHome from '../../api/getHome';
 
 
@@ -22,6 +22,7 @@ SwiperCore.use([Navigation,Autoplay]);
 
 
 
+
 function Home(props) {
     const [isLoading, SetisLoading] = useState(false);
 
@@ -31,6 +32,12 @@ function Home(props) {
     const [homeDarkFairyTales,sethomeDarkFairyTales] = useState([]);
     const [homeNewestReleases,sethomeNewestReleases] = useState([]);
     const [topSearchhome,settopSearchhome] =useState([]);
+
+
+    const typingTimeoutRef = useRef(null)
+    const [searchTerm, setSearchTerm] = useState('');
+    const [dataSearchTerm, setDataSearchTerm] = useState();
+
 
     useEffect (()=>{
         (async function() {
@@ -54,12 +61,32 @@ function Home(props) {
                
         }    
         )();
-
-
     },[])
 
+    useEffect(()=>{
+      (async function() {
+        let dataSearch= await getHome.postSearchwithKeyWord({
+          searchKeyWord:searchTerm ,
+      })
+      if(dataSearch){
+        setDataSearchTerm(dataSearch.data.data)
+      }
+      }
+      )()
+    },[searchTerm])
 
+function handleSearchTermChange(e) {
+  if(typingTimeoutRef.current){
+    clearTimeout(typingTimeoutRef.current)
+  };
 
+ typingTimeoutRef.current = setTimeout(()=>{
+    setSearchTerm(e.target.value)
+    // console.log(e.target.value)
+},500)
+}
+
+console.log(dataSearchTerm)
     return (
         <div className="Home">
  
@@ -251,8 +278,15 @@ function Home(props) {
 
           <div className="navBar-right">
             <div className="Search-film">
-              <input className="Search-film-input" type="text" placeholder="Search..." />
+              <input onChange={handleSearchTermChange} className="Search-film-input" type="text" placeholder="Search..." />
               <i className="fas fa-search text-xl icon-search" />
+             {dataSearchTerm && <div className='Modal-search'>
+                { dataSearchTerm.searchResults.map((item,index)=>{
+               return  <div key={index} className='Search-film-item'>{item.name}</div>
+                })
+                }
+             
+              </div>}
             </div>
             <div className="Home-title">Top Searches</div>
 
