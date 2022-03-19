@@ -232,6 +232,8 @@ i.fas.fa-search.text-xl.icon-search {
     border-radius: 4px;
     overflow: scroll;
     overflow-x: hidden;
+    /* display: none; */
+
 }
 
 .Search-film-item {
@@ -256,3 +258,7 @@ i.fas.fa-search.text-xl.icon-search {
   }
   
   /* Scroll-end */
+
+  .Modal-search:focus{
+      display: block;
+  }

@@ -37,6 +37,7 @@ function Home(props) {
     const typingTimeoutRef = useRef(null)
     const [searchTerm, setSearchTerm] = useState('');
     const [dataSearchTerm, setDataSearchTerm] = useState();
+    const [isSearch, setisSearch] = useState(false);
 
 
     useEffect (()=>{
@@ -84,6 +85,10 @@ function handleSearchTermChange(e) {
     setSearchTerm(e.target.value)
     // console.log(e.target.value)
 },500)
+}
+
+function getfocus() {
+  setisSearch(!isSearch)
 }
 
 console.log(dataSearchTerm)
@@ -278,10 +283,10 @@ console.log(dataSearchTerm)
 
           <div className="navBar-right">
             <div className="Search-film">
-              <input onChange={handleSearchTermChange} className="Search-film-input" type="text" placeholder="Search..." />
+              <input onChange={handleSearchTermChange}  onClick={()=>getfocus()}  className="Search-film-input" type="text" placeholder="Search..." />
               <i className="fas fa-search text-xl icon-search" />
-             {dataSearchTerm && <div className='Modal-search'>
-                { dataSearchTerm.searchResults.map((item,index)=>{
+             {isSearch && <div className='Modal-search'>
+                {dataSearchTerm && dataSearchTerm.searchResults.map((item,index)=>{
                return  <div key={index} className='Search-film-item'>{item.name}</div>
                 })
                 }
