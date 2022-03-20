@@ -259,6 +259,9 @@ i.fas.fa-search.text-xl.icon-search {
   
   /* Scroll-end */
 
-  .Modal-search:focus{
-      display: block;
+  .Modal-search a{
+      color: white;
+  }
+  .Modal-search a:hover{
+      color: #b3b6b6;
   }
