@@ -5,7 +5,9 @@
   font-family: system-ui;
   -webkit-tap-highlight-color: transparent;
 }
-
+body,html{
+  height:100%;
+}
 .grid {
   width: 100%;
   display: block;

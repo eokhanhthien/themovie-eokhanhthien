@@ -282,7 +282,7 @@ console.log(dataSearchTerm)
           <div className="navBar-right">
             <div className="Search-film">
               <input onChange={handleSearchTermChange}  className="Search-film-input" type="text" placeholder="Search..." />
-              <i className="fas fa-search text-xl icon-search" />
+              <NavLink to={`/Search/${searchTerm}`}> <i className="fas fa-search text-xl icon-search" /></NavLink>
              {isSearch && <div className='Modal-search' >
                 {dataSearchTerm && dataSearchTerm.searchResults.map((item,index)=>{
                return  <div key={index}
