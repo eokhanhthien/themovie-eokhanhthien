@@ -154,7 +154,7 @@ body::-webkit-scrollbar {
 .Home-film-name {
     background-color: #1f2937;
     color: white;
-    padding: 6px 8px 8px 8px;
+    padding: 4px 8px 4px 8px;
     font-size: 18px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -279,3 +279,41 @@ i.fas.fa-search.text-xl.icon-search {
   .Modal-search a:hover{
       color: #b3b6b6;
   }
+  .no-gutters-custom{
+      padding:0 4px !important; 
+  }
+
+  .Modal-home{
+      position: fixed;
+      top: 0;
+      left: -100%;
+      bottom: 0;
+      width: 280px;
+      background-color: #191A1F;
+      z-index: 10;
+      padding: 40px 0 40px 20px;
+      transition: 0.4s;
+  }
+
+  /* Modal - Start */
+.OverLay-Modal-home{
+    position: fixed;
+    top: 0;
+    left: -100%;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    opacity: 0;
+    transition: 0.4s;
+    visibility:hidden
+}
+.OverLay-Modal-home-active{
+    visibility:visible;
+    opacity: 1;
+}
+  .Modal-home-active{
+    left: 0;
+  }
+
+  /* Modal - End */

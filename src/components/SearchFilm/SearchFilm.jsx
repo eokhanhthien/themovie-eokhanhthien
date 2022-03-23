@@ -42,7 +42,7 @@ function SearchFilm(props) {
         <div className='row'>
         {dataSearchTerm ? dataSearchTerm.searchResults.map((item,index)=>{
             return (
-            <div key={index} className="col l-1-5 m-3 c-6">
+            <div key={index} className="col l-1-33 m-3 c-6">
             <div className="Home-film-item-search ">
                 <NavLink to={`/DetailVideo/${item.id}/${item.domainType}`}>
                 <div className="Home-film-img">

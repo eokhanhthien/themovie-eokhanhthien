@@ -451,7 +451,10 @@ html, body{
   .l-12 {
     display: block;
   }
-
+  .l-0-6 {
+    flex: 0 0 5%;
+    max-width: 5%;
+  }
   .l-1 {
     flex: 0 0 8.33333%;
     max-width: 8.33333%;
@@ -609,6 +612,11 @@ html, body{
 
   .l-o-11 {
     margin-left: 91.66667%;
+  }
+
+  .Modal-home,
+  .OverLay-Modal-home{
+    display: none !important;
   }
 }
 

@@ -105,11 +105,11 @@ function WatchMovie(props) {
     {dataDetail ? <div className="name-Video">{`${dataDetail.aliasName} tập ${subtitleCurrent+1}`}</div>:<div className="text-Name-detail-skeletons" ></div>}
     
     <div className='Episodes-title'>Episodes</div>
-    <div className="row ">
+    <div className="row sm-gutter">
       {
         dataDetail ? dataDetail.episodeVo.map((item,index)=>{
           return (
-            <div key={index} className='col l-1 m-2-4 c-2-4'>
+            <div key={index} className='col l-0-6 m-2-4 c-2-4'>
           <button  
             onClick={()=>handleChangeEpisodes(item.id,index)}
             className={episodeIdCurrent == item.id ?'Episodes-btn Episodes-btn-active':'Episodes-btn col'}>{index+1}</button>

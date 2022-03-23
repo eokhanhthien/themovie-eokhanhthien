@@ -39,6 +39,7 @@ function Home(props) {
     const [dataSearchTerm, setDataSearchTerm] = useState();
 
     const [isSearch, setisSearch] = useState(true);
+    const [isActiveModal, setIsActiveModal] = useState(false);
 
 
     useEffect (()=>{
@@ -87,8 +88,11 @@ function handleSearchTermChange(e) {
 },500)
 }
 
+function handleOpenModalHome() {
+  setIsActiveModal(!isActiveModal)
+}
 
-// console.log(dataSearchTerm)
+// console.log(topSearchhome)
     return (
         <div className="Home">
  
@@ -115,7 +119,7 @@ function handleSearchTermChange(e) {
           </div>
           <div className="col l-6 m-6 c-6 menu-navbar-mobie">
             <div className="Search-film-watch">
-            <i className="fas fa-bars icon-home-list"></i>
+            <i onClick={()=>handleOpenModalHome()} className="fas fa-bars icon-home-list"></i>
             </div>
           </div>
 
@@ -299,12 +303,14 @@ function handleSearchTermChange(e) {
               topSearchhome.map((item,index)=>{
                 return (
                     <div key={index} className="top-search-item">
+                 <NavLink to={`/DetailVideo/${item.id}/${item.domainType}`}>  
                     <div className="row no-gutters">
                       <div className="top-search-img col l-5">
                         <img src={item.cover} alt="" />
                       </div>
                       <div className="top-search-name col l-7">{item.title}</div>
                     </div>
+                </NavLink> 
                   </div>
                 )
               }) : [1,2,3,4,5,6,7,8,9].map((item,index)=>{
@@ -315,6 +321,24 @@ function handleSearchTermChange(e) {
 
           </div>
         </div>
+
+        <div className={isActiveModal ? 'Modal-home Modal-home-active':'Modal-home'}>
+        <div className="row no-gutters">
+              <div className="icon_film"><img src="./image/icon.png" alt="" /> </div> 
+              <div style={{fontWeight: 600, color: 'white', marginLeft: '12px', fontSize: '19px'}}>FilmHot</div>   
+            </div>
+            <div className="menu mt-40px">MENU</div>
+            <div className="menu"><i className="fas fa-home text-xl " />Home</div>
+            <div className="menu"><i className="fas fa-compass text-xl " />Discovery</div>
+            <div className="menu"><i className="fas fa-desktop text-xl " />Explore</div>
+            <div className="menu"><i className="fas fa-history text-xl " />History</div>
+            <div className="menu mt-40px">PERSONAL</div>
+            <div className="menu"><i className="fas fa-sign-in-alt text-xl" />Sign in</div>
+        
+        
+        </div>
+        <div onClick={()=>handleOpenModalHome()} className={isActiveModal ? 'OverLay-Modal-home OverLay-Modal-home-active':'OverLay-Modal-home' }></div>
+          
       </div>
       
     );

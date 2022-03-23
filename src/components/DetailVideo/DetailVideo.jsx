@@ -7,22 +7,24 @@ import SkeletonsLikeList from '../Skeletons/SkeletonsLikeList';
 function WatchMovie(props) {
   const { id, category } = useParams();
   const [dataDetail, setdataDetail] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [episodeId,setEpisodeId] = useState();
   const [definition,setDefinition] = useState();
   useEffect(()=>{
     (async function () {
       const getDataDetail = await getHome.getDetail({id,category});
+      setIsLoading(false)
       if(getDataDetail){
         setdataDetail(getDataDetail.data.data)
         setEpisodeId(getDataDetail.data.data.episodeVo[0].id)
         setDefinition(getDataDetail.data.data.episodeVo[0].definitionList[0].code)
-        
+        setIsLoading(true)
       }
-   
+      
  
     })()   
-  },[])
+  },[id])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -48,20 +50,22 @@ function WatchMovie(props) {
         </div>
         <div className="watchMovie-content row ">
           <div className="col l-9 m-12 c-12">
-           {dataDetail ? <div className="video-container" ><img src={dataDetail.coverHorizontalUrl} alt="" /></div> : <div className="img-Detail-Skeleton" ></div>}
+           {isLoading ? <div className="video-container" ><img src={dataDetail.coverHorizontalUrl} alt="" /></div> : <div className="img-Detail-Skeleton" ></div>}
           </div>
           <div className="col l-3 m-12 c-12 ">
             <div className="Home-title-detail">Similar to this</div>
            <div className='Similar-container'>
-          {dataDetail ?  dataDetail.likeList.map((item,index)=>{
+          {isLoading ?  dataDetail.likeList.map((item,index)=>{
             return( 
             <div key={index} className="watch-item">
+          <NavLink to={`/DetailVideo/${item.id}/${item.category}`}>  
             <div className="row no-gutters">
               <div className="watch-img col l-3">
                 <img src={item.upImgUrl} alt="" />
               </div>
               <div className="Similar col l-9">{item.upName}</div>
             </div>
+          </NavLink> 
           </div>)
           })  : [1,2,3,4,5,6,7].map((item,index)=>{
             return ( <SkeletonsLikeList key={index}></SkeletonsLikeList>)
@@ -77,7 +81,7 @@ function WatchMovie(props) {
         <div className="btn-watch-now">
         <NavLink to={`/WatchMovie/${id}/${category}/${episodeId}/${definition}`}> <button>WATCH NOW</button> </NavLink>
         </div>
-       {dataDetail ? <div className="name-Video">{dataDetail.aliasName}</div>:<div className="text-Name-detail-skeletons" ></div>}
+       {isLoading ? <div className="name-Video">{dataDetail.aliasName}</div>:<div className="text-Name-detail-skeletons" ></div>}
         <div className="row no-gutters"> 
           <div className="row no-gutters">
             <div className="video-Star"><img src="../../image/star.png" alt="" /></div>
