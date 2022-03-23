@@ -37,7 +37,6 @@ function SkeletonsMovie(props) {
       <SwiperSlide>
         <div className="Home-film-item-Skeleton ">
           <div className="Home-film-img-Skeleton">
-            <div className="img-movie"></div>
           </div>
         </div>
       </SwiperSlide>
@@ -45,7 +44,6 @@ function SkeletonsMovie(props) {
       <SwiperSlide>
         <div className="Home-film-item-Skeleton ">
           <div className="Home-film-img-Skeleton">
-            <div className="img-movie"></div>
           </div>
         </div>
       </SwiperSlide>
@@ -53,7 +51,6 @@ function SkeletonsMovie(props) {
       <SwiperSlide>
         <div className="Home-film-item-Skeleton ">
           <div className="Home-film-img-Skeleton">
-            <div className="img-movie"></div>
           </div>
         </div>
       </SwiperSlide>
@@ -61,7 +58,6 @@ function SkeletonsMovie(props) {
       <SwiperSlide>
         <div className="Home-film-item-Skeleton ">
           <div className="Home-film-img-Skeleton">
-            <div className="img-movie"></div>
           </div>
         </div>
       </SwiperSlide>
@@ -69,7 +65,6 @@ function SkeletonsMovie(props) {
       <SwiperSlide>
         <div className="Home-film-item-Skeleton ">
           <div className="Home-film-img-Skeleton">
-            <div className="img-movie"></div>
           </div>
         </div>
       </SwiperSlide>
@@ -77,7 +72,6 @@ function SkeletonsMovie(props) {
       <SwiperSlide>
         <div className="Home-film-item-Skeleton ">
           <div className="Home-film-img-Skeleton">
-            <div className="img-movie"></div>
           </div>
         </div>
       </SwiperSlide>

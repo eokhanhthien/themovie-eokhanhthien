@@ -5,9 +5,13 @@
   font-family: system-ui;
   -webkit-tap-highlight-color: transparent;
 }
-body,html{
-  height:100%;
+
+html, body{
+  height: 100%;
+  background-color: #191a1f;
+
 }
+
 .grid {
   width: 100%;
   display: block;
@@ -829,6 +833,13 @@ body,html{
   .Home-title-detail{
     padding: 0 !important;
   }
+  .searchFilm-Container{
+    padding: 16px !important;
+  }
+  
+.Home-film-item{
+  height: 260px;
+}
 }
 /*Iphone(480 x 640)*/
 @media screen and (max-width: 320px) {

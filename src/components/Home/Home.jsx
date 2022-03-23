@@ -49,18 +49,17 @@ function Home(props) {
     
             let topSearch = await getHome.getAll("/search/v1/searchLeaderboard")
 
-            if(dataHome&&topSearch){
+            if(dataHome){
               sethomeBanner(dataHome.recommendItems[1].recommendContentVOList)
-              sethomeTrending(dataHome.recommendItems[4].recommendContentVOList)
+              sethomeTrending(dataHome.recommendItems[3].recommendContentVOList)
               sethomeHotDrama(dataHome.recommendItems[2].recommendContentVOList)
               sethomeDarkFairyTales(dataHome.recommendItems[7].recommendContentVOList)
               sethomeNewestReleases(dataHome.recommendItems[5].recommendContentVOList)
-              settopSearchhome(topSearch.list)
               SetisLoading(true);
             }
-
-
-               
+            if(topSearch){
+              settopSearchhome(topSearch.list)
+            }              
         }    
         )();
     },[])
@@ -89,7 +88,7 @@ function handleSearchTermChange(e) {
 }
 
 
-console.log(dataSearchTerm)
+// console.log(dataSearchTerm)
     return (
         <div className="Home">
  
@@ -148,7 +147,7 @@ console.log(dataSearchTerm)
               },
               // when window width is >= 768px
               768: {
-                slidesPerView: 4,
+                slidesPerView: 3,
               },
               1023: {
                 slidesPerView: 6,
@@ -186,7 +185,7 @@ console.log(dataSearchTerm)
               },
               // when window width is >= 768px
               768: {
-                slidesPerView: 4,
+                slidesPerView: 3,
               },
               1023: {
                 slidesPerView: 6,
@@ -221,7 +220,7 @@ console.log(dataSearchTerm)
               },
               // when window width is >= 768px
               768: {
-                slidesPerView: 4,
+                slidesPerView: 3,
               },
               1023: {
                 slidesPerView: 6,
@@ -255,7 +254,7 @@ console.log(dataSearchTerm)
               },
               // when window width is >= 768px
               768: {
-                slidesPerView: 4,
+                slidesPerView: 3,
               },
               1023: {
                 slidesPerView: 6,

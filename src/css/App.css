@@ -104,7 +104,9 @@ body::-webkit-scrollbar {
     background-color: #1f2937;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    height: 90%;
 }
+
 
 .Home-film-img-actor{
     width: 100%;
@@ -120,7 +122,10 @@ body::-webkit-scrollbar {
     width: 100%;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    height: 100%;
+    object-fit: cover;
 }
+
 
 .Home-film-img-Skeleton{
     width: 100%;
@@ -160,10 +165,19 @@ body::-webkit-scrollbar {
     text-overflow: ellipsis;
 }
 .Home-film-item {
-    padding: 8px;
+    padding:  8px;
     cursor: pointer;
     transition: .3s;
+    height: 284px;
 }
+
+.Home-film-item-search {
+    padding: 20px 0px;
+    cursor: pointer;
+    transition: .3s;
+    height: 284px;
+}
+
 
 .Home-film-item:hover{
    filter: brightness(75%);
