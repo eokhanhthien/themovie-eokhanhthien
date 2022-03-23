@@ -838,7 +838,11 @@ html, body{
   }
   
 .Home-film-item{
-  height: 260px;
+  height: 254px !important;
+}
+
+.Home-film-item-Skeleton{
+  height: 254px !important;
 }
 }
 /*Iphone(480 x 640)*/
