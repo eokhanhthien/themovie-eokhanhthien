@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink,useParams } from 'react-router-dom';
-import getHome from '../../api/getHome';
+import postSearchwithKeyWord from '../../api/postSearchwithKeyWord';
 import SkeletonsSearchFilm from '../Skeletons/SkeletonsSearchFilm';
 import "./SearchFilm.css"
 
@@ -9,7 +9,7 @@ function SearchFilm(props) {
     const [dataSearchTerm, setDataSearchTerm] = useState();
     useEffect(()=>{
         (async function() {
-          let dataSearch= await getHome.postSearchwithKeyWord({
+          let dataSearch= await postSearchwithKeyWord.postSearchwithKeyWord({
             searchKeyWord:keyword ,
         })
         if(dataSearch){

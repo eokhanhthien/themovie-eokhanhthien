@@ -816,7 +816,8 @@ html, body{
     max-height: 300px !important;
   }
   .Home-title{
-    padding-left: 0;
+    padding-left: 0!important;
+    font-size:22px !important;
   }
   .container-watch {
     padding: 16px 16px 60px 16px !important;

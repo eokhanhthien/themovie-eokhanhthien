@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./DetailVideo.css"
 import { NavLink, useParams } from "react-router-dom";
-import getHome from '../../api/getHome';
+import getDetail from '../../api/getDetail';
 import SkeletonsLikeList from '../Skeletons/SkeletonsLikeList';
 
 function WatchMovie(props) {
@@ -13,7 +13,7 @@ function WatchMovie(props) {
   const [definition,setDefinition] = useState();
   useEffect(()=>{
     (async function () {
-      const getDataDetail = await getHome.getDetail({id,category});
+      const getDataDetail = await getDetail.getDetail({id,category});
       setIsLoading(false)
       if(getDataDetail){
         setdataDetail(getDataDetail.data.data)

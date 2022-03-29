@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import "./WatchMovie.css"
 import ReactHlsPlayer from 'react-hls-player';
-import getHome from '../../api/getHome';
+import getDetail from '../../api/getDetail';
+import getMediaUrl from '../../api/getMediaUrl';
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
@@ -19,7 +20,7 @@ function WatchMovie(props) {
   // console.log(episodeIdCurrent)
     useEffect(()=>{
         (async function() {
-            let mediaUrl = await getHome.getMediaUrl({
+            let mediaUrl = await getMediaUrl.getMediaUrl({
                 id,
                 category,
                 episodeId:episodeIdCurrent,
@@ -29,7 +30,7 @@ function WatchMovie(props) {
               setUrlMedia(mediaUrl.data.data);
             }
 
-            const getDataDetail = await getHome.getDetail({id,category});
+            const getDataDetail = await getDetail.getDetail({id,category});
             if(getDataDetail){
               setdataDetail(getDataDetail.data.data)
               const linkVNSubtitleGET = getDataDetail.data.data.episodeVo[subtitleCurrent].subtitlingList.filter((item) => item.languageAbbr === 'vi');

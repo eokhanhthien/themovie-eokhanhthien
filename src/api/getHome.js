@@ -1,53 +1,8 @@
 import axiosClient from "./axiosClient";
-import axios from "axios";
-
-
 
 const getHome = {
     getAll(url, params) {
         return axiosClient.get(url, { params },{mode:'cors'});
-    },
-    getDetail(params) {
-        const { id, category } = params;
-        const axioGetDetail = axios.create({
-
-            headers: {
-                "lang": "en",
-                "versioncode" :"11",
-                "clienttype" : "ios_jike_default",
-            },
-        });
-        return axioGetDetail.get(`https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get?id=${id}&category=${category}`, {mode: 'no-cors'});
-    },
-
-    getMediaUrl(params) {
-        const { category, id , episodeId,definition } = params;
-        const axioGetMedia = axios.create({
-            headers: {
-                "lang": "en",
-                "versioncode" :"11",
-                "clienttype" : "ios_jike_default",
-            },
-        });
-        return axioGetMedia.get(`https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=${category}&contentId=${id}&episodeId=${episodeId}&definition=${definition}`, {mode: 'no-cors',withCredentials: false});
-    },
-
-    postSearchwithKeyWord(params) {
-        const { searchKeyWord } = params;
-        const axioGetMedia = axios.create({
-            headers: {
-                "lang": "en",
-                "versioncode" :"11",
-                "clienttype" : "ios_jike_default",
-                "Content-Type" : "application/json"
-            },
-        });
-        return axioGetMedia.post(`https://ga-mobile-api.loklok.tv/cms/app/search/v1/searchWithKeyWord`,{
-            "searchKeyWord": `${searchKeyWord}`,
-            "size": 50,
-            "sort": "",
-            "searchType": ""
-        });
     },
 }
 

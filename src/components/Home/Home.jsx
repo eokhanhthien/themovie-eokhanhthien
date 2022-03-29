@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import getHome from '../../api/getHome';
+import postSearchwithKeyWord from '../../api/postSearchwithKeyWord';
 
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -67,7 +68,7 @@ function Home(props) {
 
     useEffect(()=>{
       (async function() {
-        let dataSearch= await getHome.postSearchwithKeyWord({
+        let dataSearch= await postSearchwithKeyWord.postSearchwithKeyWord({
           searchKeyWord:searchTerm ,
       })
       if(dataSearch){
