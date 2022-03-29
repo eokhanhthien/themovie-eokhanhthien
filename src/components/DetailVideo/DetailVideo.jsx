@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import "./DetailVideo.css"
 import { NavLink, useParams } from "react-router-dom";
 import getDetail from '../../api/getDetail';
@@ -11,6 +11,11 @@ function WatchMovie(props) {
 
   const [episodeId,setEpisodeId] = useState();
   const [definition,setDefinition] = useState();
+
+  const typingTimeoutRef = useRef(null)
+  const [searchTerm, setSearchTerm] = useState('');
+
+
   useEffect(()=>{
     (async function () {
       const getDataDetail = await getDetail.getDetail({id,category});
@@ -30,6 +35,17 @@ function WatchMovie(props) {
     window.scrollTo(0, 0)
   }, [])
  
+  function handleSearchTermChange(e) {
+    if(typingTimeoutRef.current){
+      clearTimeout(typingTimeoutRef.current)
+    };
+  
+   typingTimeoutRef.current = setTimeout(()=>{
+      setSearchTerm(e.target.value)
+      // console.log(e.target.value)
+  },500)
+  }
+
   // console.log(dataDetail)
   // console.log(category,id,episodeId,definition)
     return (
@@ -43,8 +59,8 @@ function WatchMovie(props) {
           </div>
           <div className="col l-6 m-6 c-6">
             <div className="Search-film-watch">
-              <input className="Search-film-input-watch" type="text" placeholder="Search..." />
-              <i className="fas fa-search text-xl icon-search" />
+              <input onChange={handleSearchTermChange} className="Search-film-input-watch" type="text" placeholder="Search..." />
+              <NavLink to={`/Search/${searchTerm}`}> <i className="fas fa-search text-xl icon-search" /></NavLink>
             </div>
           </div>
         </div>

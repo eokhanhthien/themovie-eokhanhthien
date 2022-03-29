@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import "./WatchMovie.css"
 import ReactHlsPlayer from 'react-hls-player';
 import getDetail from '../../api/getDetail';
@@ -16,6 +16,10 @@ function WatchMovie(props) {
 
   const [subtitleCurrent, setSubtitleCurrent] = useState(0);
   const [linkVNSubtitle, setlinkVNSubtitle] = useState("");
+
+
+  const typingTimeoutRef = useRef(null)
+  const [searchTerm, setSearchTerm] = useState('');
 
   // console.log(episodeIdCurrent)
     useEffect(()=>{
@@ -66,7 +70,16 @@ function WatchMovie(props) {
       setSubtitleCurrent(subtitle)
     }
 
-
+    function handleSearchTermChange(e) {
+      if(typingTimeoutRef.current){
+        clearTimeout(typingTimeoutRef.current)
+      };
+    
+     typingTimeoutRef.current = setTimeout(()=>{
+        setSearchTerm(e.target.value)
+        // console.log(e.target.value)
+    },500)
+    }
 
     return (
         <div className="container-watch">   
@@ -81,8 +94,8 @@ function WatchMovie(props) {
           </div>
           <div className="col l-6 m-6 c-6">
             <div className="Search-film-watch">
-              <input className="Search-film-input-watch" type="text" placeholder="Search..." />
-              <i className="fas fa-search text-xl icon-search" />
+            <input onChange={handleSearchTermChange} className="Search-film-input-watch" type="text" placeholder="Search..." />
+              <NavLink to={`/Search/${searchTerm}`}> <i className="fas fa-search text-xl icon-search" /></NavLink>
             </div>
           </div>
         </div>
