@@ -294,7 +294,10 @@ i.fas.fa-search.text-xl.icon-search {
       padding: 40px 0 40px 20px;
       transition: 0.4s;
   }
-
+.Modal-home a{
+    color: #9399A5;
+    text-decoration: none;
+}
   /* Modal - Start */
 .OverLay-Modal-home{
     position: fixed;

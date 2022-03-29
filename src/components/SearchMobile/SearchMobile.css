@@ -1,0 +1,10 @@
+.Search-Mobile-container{
+    padding:16px;
+}
+
+.Search-Mobile-container-title {
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    margin: 10px 0;
+}

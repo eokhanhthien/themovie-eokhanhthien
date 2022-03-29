@@ -332,6 +332,7 @@ function handleOpenModalHome() {
             <div className="menu"><i className="fas fa-compass text-xl " />Discovery</div>
             <div className="menu"><i className="fas fa-desktop text-xl " />Explore</div>
             <div className="menu"><i className="fas fa-history text-xl " />History</div>
+            <div className="menu">  <NavLink to="/SearchMobile"><i className="fas fa-search text-xl"></i>Search</NavLink></div>
             <div className="menu mt-40px">PERSONAL</div>
             <div className="menu"><i className="fas fa-sign-in-alt text-xl" />Sign in</div>
         
