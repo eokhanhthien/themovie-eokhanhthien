@@ -104,8 +104,8 @@ function handleOpenModalHome() {
               <div style={{fontWeight: 600, color: 'white', marginLeft: '12px', fontSize: '19px'}}>FilmHot</div>   
             </div>
             <div className="menu mt-40px">MENU</div>
-            <div className="menu"><i className="fas fa-home text-xl " />Home</div>
-            <div className="menu"><i className="fas fa-compass text-xl " />Discovery</div>
+            <div className="menu active_navbar-left"> <NavLink to="/"><i className="fas fa-home text-xl " />Home</NavLink></div>
+            <div className="menu"><NavLink to="/Preview"><i className="fas fa-compass text-xl " />Discovery</NavLink></div>
             <div className="menu"><i className="fas fa-desktop text-xl " />Explore</div>
             <div className="menu"><i className="fas fa-history text-xl " />History</div>
             <div className="menu mt-40px">PERSONAL</div>

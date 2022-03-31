@@ -50,7 +50,6 @@
 }
 .watch-img{
     width: 70px;
-    height: 100px;
 }
 
 .watch-img img{
@@ -101,7 +100,7 @@
 
 .video-point {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
     margin-left: 8px;
 }
@@ -179,4 +178,10 @@
 }
 .watch-item a{
     text-decoration: none;
+}
+.watch-item{
+margin-bottom: 6px;
+}
+.watch-item:hover{
+    filter: brightness(75%);
 }

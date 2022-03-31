@@ -46,7 +46,7 @@ function WatchMovie(props) {
   },500)
   }
 
-  // console.log(dataDetail)
+  console.log(dataDetail)
   // console.log(category,id,episodeId,definition)
     return (
         <div className="watchMovie-Container">
@@ -79,7 +79,7 @@ function WatchMovie(props) {
               <div className="watch-img col l-3">
                 <img src={item.upImgUrl} alt="" />
               </div>
-              <div className="Similar col l-9">{item.upName}</div>
+              <div className="Similar col l-9">{item.upName} <div className="row no-gutters"><div className="video-Star"><img src="../../image/star.png" alt="" /></div> <div className="video-point"> {item.score}</div> </div> </div>
             </div>
           </NavLink> 
           </div>)

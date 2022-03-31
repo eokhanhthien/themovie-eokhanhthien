@@ -22,7 +22,7 @@ body::-webkit-scrollbar {
     /* border: 1px solid #1F2937; */
 
     position: sticky;
-    top: 0; 
+    top: 16px; 
 }
 
 .navBar-right{
@@ -31,7 +31,7 @@ body::-webkit-scrollbar {
 
     position: sticky;
     height: 100%;
-    top: 0; 
+    top: 16px; 
 }
 
 .Home-content{
@@ -62,7 +62,7 @@ body::-webkit-scrollbar {
     cursor: pointer;
 }
 
-.menu:hover{
+.menu:hover a{
     color: white;
     transition: 0.4s;
 }
@@ -320,3 +320,18 @@ i.fas.fa-search.text-xl.icon-search {
   }
 
   /* Modal - End */
+
+  .menu a{
+      color: #9399A5;
+  }
+  .active_navbar-left{
+    border-right: 3px solid #007aff;   
+  }
+  .active_navbar-left a{
+    color: #007aff;
+    transition: 0.3s;
+  }
+  .menu.active_navbar-left:hover a{
+    color: #409afa;
+
+  }
