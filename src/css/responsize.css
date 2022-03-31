@@ -853,6 +853,16 @@ html, body{
 .Home-film-item-Skeleton{
   height: 254px !important;
 }
+.Video_preview_item{
+  width:100% !important;
+  height: 100% !important;
+  margin: 50px 0 0px 0 !important;
+}
+.Preview-Container{
+  padding:0 !important;
+  border: none !important;
+  width: 100% !important;
+}
 }
 /*Iphone(480 x 640)*/
 @media screen and (max-width: 320px) {

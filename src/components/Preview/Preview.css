@@ -1,4 +1,49 @@
 .Preview-Container{
     width: 84.97%;
     border-left: 1px solid #1F2937;
+    padding: 40px 76px;
+}
+
+.Video_preview_item{
+    height: 400px;
+    width: 528px;
+    margin: 0 auto;
+}
+
+.Preview_img_title{
+    width: 48px;
+    height: 48px;
+}
+
+.Preview_img_title img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.Preview_img_name{
+    color: white;
+    font-size: 14px;
+    padding-left: 25px !important;
+}
+
+.Preview_img_btn_item button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #27282E;
+    border: none;
+    cursor: pointer;
+}
+
+.Preview_img_btn_item {
+    text-align: center;
+    color: white;
+    margin-bottom: 16px;
+}
+.Preview_img_btn_item_heart{
+    color: red;
+}
+
+i.fas.fa-external-link-alt.Preview_img_btn_item_opem {
+    color: white;
 }
