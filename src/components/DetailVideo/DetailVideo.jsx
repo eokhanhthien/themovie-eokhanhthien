@@ -46,7 +46,7 @@ function WatchMovie(props) {
   },500)
   }
 
-  console.log(dataDetail)
+  // console.log(dataDetail)
   // console.log(category,id,episodeId,definition)
     return (
         <div className="watchMovie-Container">

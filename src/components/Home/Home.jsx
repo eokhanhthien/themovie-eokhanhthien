@@ -52,11 +52,26 @@ function Home(props) {
             let topSearch = await getHome.getAll("/search/v1/searchLeaderboard")
 
             if(dataHome){
-              sethomeBanner(dataHome.recommendItems[1].recommendContentVOList)
-              sethomeTrending(dataHome.recommendItems[3].recommendContentVOList)
-              sethomeHotDrama(dataHome.recommendItems[2].recommendContentVOList)
-              sethomeDarkFairyTales(dataHome.recommendItems[7].recommendContentVOList)
-              sethomeNewestReleases(dataHome.recommendItems[5].recommendContentVOList)
+     
+              dataHome.recommendItems.forEach(e => {
+                if(e.homeSectionType === "BANNER"){
+                  sethomeBanner(e.recommendContentVOList)
+                }
+
+                else if(e.homeSectionName === "Trending Now"){
+                  sethomeTrending(e.recommendContentVOList)
+                }
+
+                else if(e.homeSectionName === "Hot K-Drama"){
+                  sethomeHotDrama(e.recommendContentVOList)
+                }
+                else if(e.homeSectionName === "Blood & Gore "){
+                  sethomeDarkFairyTales(e.recommendContentVOList)
+                }
+                else if(e.homeSectionName === "Top Picks on Loklok"){
+                  sethomeNewestReleases(e.recommendContentVOList)
+                }
+              });
               SetisLoading(true);
             }
             if(topSearch){
@@ -93,7 +108,7 @@ function handleOpenModalHome() {
   setIsActiveModal(!isActiveModal)
 }
 
-// console.log(topSearchhome)
+// console.log(test)
     return (
         <div className="Home">
  
