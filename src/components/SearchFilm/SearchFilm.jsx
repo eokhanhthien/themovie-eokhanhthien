@@ -3,7 +3,7 @@ import { NavLink,useParams } from 'react-router-dom';
 import postSearchwithKeyWord from '../../api/postSearchwithKeyWord';
 import SkeletonsSearchFilm from '../Skeletons/SkeletonsSearchFilm';
 import "./SearchFilm.css"
-
+import "../DetailVideo/DetailVideo.css"
 function SearchFilm(props) {
     const {keyword} = useParams();
     const [dataSearchTerm, setDataSearchTerm] = useState();
@@ -22,12 +22,13 @@ function SearchFilm(props) {
     //   console.log(dataSearchTerm)
     return (
         <div className='searchFilm-Container'>
-            <div className="watchMovie-header row">
+          
+          <div className="watchMovie-header row">
           <div className="col l-6 m-6 c-6">
          <div className="row no-gutters">
               <NavLink to="/"><div className="watchMovie-icon_film"><img src="../../image/icon.png" alt="" /> </div> </NavLink>  
               <NavLink to="/"> <div style={{fontWeight: 600, color: 'white', marginLeft: '12px', fontSize: '19px',lineHeight: '31px'}}>FilmHot</div> </NavLink>  
-            </div>
+         </div>
           </div>
           <div className="col l-6 m-6 c-6">
             <div className="Search-film-watch">
