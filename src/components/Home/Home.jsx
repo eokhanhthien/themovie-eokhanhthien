@@ -35,6 +35,7 @@ function Home(props) {
     const [topSearchhome,settopSearchhome] =useState([]);
 
 
+
     const typingTimeoutRef = useRef(null)
     const [searchTerm, setSearchTerm] = useState('');
     const [dataSearchTerm, setDataSearchTerm] = useState();
@@ -52,7 +53,7 @@ function Home(props) {
             let topSearch = await getHome.getAll("/search/v1/searchLeaderboard")
 
             if(dataHome){
-     
+
               dataHome.recommendItems.forEach(e => {
                 if(e.homeSectionType === "BANNER"){
                   sethomeBanner(e.recommendContentVOList)
@@ -65,7 +66,7 @@ function Home(props) {
                 else if(e.homeSectionName === "Hot K-Drama"){
                   sethomeHotDrama(e.recommendContentVOList)
                 }
-                else if(e.homeSectionName === "Blood & Gore "){
+                else if(e.homeSectionName === "Movie Selection"){
                   sethomeDarkFairyTales(e.recommendContentVOList)
                 }
                 else if(e.homeSectionName === "Top Picks on Loklok"){
