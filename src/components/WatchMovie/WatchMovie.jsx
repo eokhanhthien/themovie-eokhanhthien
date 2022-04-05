@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import "./WatchMovie.css"
+import "../DetailVideo/DetailVideo.css"
 import ReactHlsPlayer from 'react-hls-player';
 import getDetail from '../../api/getDetail';
 import getMediaUrl from '../../api/getMediaUrl';
