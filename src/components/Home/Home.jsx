@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
+import "../DetailVideo/DetailVideo.css"
 
 // import Swiper core and required modules
 import SwiperCore, { Navigation ,Autoplay } from "swiper";
