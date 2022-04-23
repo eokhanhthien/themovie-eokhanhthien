@@ -1,8 +1,9 @@
 import React from 'react';
+import Shimmer from './Shimmer';
 
 function SkeletonsLikeList(props) {
     return (
-        <div className="watch-item">
+        <div className="watch-item animation-shimmer">
             <div className="row ">
               <div className="watch-img col l-3 m-3 c-3">
                 <div className='SkeletonsLikeList-thumb'></div>
@@ -11,6 +12,7 @@ function SkeletonsLikeList(props) {
               <div className='SkeletonsLikeList-text'></div>
               </div>
             </div>
+            <Shimmer></Shimmer>
           </div>
     );
 }

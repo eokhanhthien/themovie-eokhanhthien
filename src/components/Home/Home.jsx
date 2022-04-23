@@ -8,10 +8,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
 import "../DetailVideo/DetailVideo.css"
 
 // import Swiper core and required modules
-import SwiperCore, { Navigation ,Autoplay } from "swiper";
+import SwiperCore, { Navigation ,Autoplay,Pagination } from "swiper";
 import SkeletonsBanner from '../Skeletons/SkeletonsBanner';
 import SkeletonsMovie from '../Skeletons/SkeletonsMovie';
 import SkeletonsTopsearch from '../Skeletons/SkeletonsTopsearch';
@@ -21,7 +22,7 @@ import { NavLink } from 'react-router-dom';
 import { horizontalSize } from '../Functional/horizontalSize';
 
 // install Swiper modules
-SwiperCore.use([Navigation,Autoplay]);
+SwiperCore.use([Navigation,Autoplay,Pagination]);
 
 
 
@@ -145,7 +146,17 @@ console.log(vd)
 
           <div className="Home-content">
             
-       {isLoading ? <Swiper  className="Home-banner" navigation={true} modules={[Navigation]}>
+       {isLoading ? <Swiper  className="Home-banner" 
+                autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+                }}  
+                loop={true}
+                navigation={true} 
+                modules={[Navigation,Pagination]}
+                pagination={{ clickable: true }}
+       
+       >
             {
                  homeBanner.map((item,index)=>{
                     return (<SwiperSlide key={index}><img src={horizontalSize(item.imageUrl,1189,520)} alt="" /></SwiperSlide>);
@@ -161,20 +172,27 @@ console.log(vd)
             {isLoading ? 
             <Swiper   
             navigation={true} modules={[Navigation]}
+            // slidesPerGroup={6}
             breakpoints={{
               0: {
                 slidesPerView: 2,
+                slidesPerGroup:2
               },
               // when window width is >= 640px
               640: {
-                slidesPerView: 3,
+                slidesPerGroup:3,
+                slidesPerView: 3
               },
               // when window width is >= 768px
               768: {
                 slidesPerView: 3,
+                slidesPerGroup:3
+
               },
               1025: {
                 slidesPerView: 6,
+                slidesPerGroup:6
+
               },
             }}>
             {
@@ -202,17 +220,25 @@ console.log(vd)
             breakpoints={{
               0: {
                 slidesPerView: 2,
+                slidesPerGroup:2
+
               },
               // when window width is >= 640px
               640: {
                 slidesPerView: 2,
+                slidesPerGroup:2
+
               },
               // when window width is >= 768px
               768: {
                 slidesPerView: 3,
+                slidesPerGroup:3
+
               },
               1023: {
                 slidesPerView: 6,
+                slidesPerGroup:6
+
               },
             }}>
             {
@@ -237,17 +263,25 @@ console.log(vd)
             breakpoints={{
               0: {
                 slidesPerView: 2,
+                slidesPerGroup:2
+
               },
               // when window width is >= 640px
               640: {
                 slidesPerView: 2,
+                slidesPerGroup:2
+
               },
               // when window width is >= 768px
               768: {
                 slidesPerView: 3,
+                slidesPerGroup:3
+
               },
               1023: {
                 slidesPerView: 6,
+                slidesPerGroup:6
+
               },
             }}>
             {
@@ -271,17 +305,25 @@ console.log(vd)
             breakpoints={{
               0: {
                 slidesPerView: 2,
+                slidesPerGroup:2
+
               },
               // when window width is >= 640px
               640: {
                 slidesPerView: 2,
+                slidesPerGroup:2
+
               },
               // when window width is >= 768px
               768: {
                 slidesPerView: 3,
+                slidesPerGroup:3
+
               },
               1023: {
                 slidesPerView: 6,
+                slidesPerGroup:6
+
               },
             }}>
             {

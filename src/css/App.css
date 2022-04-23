@@ -128,7 +128,7 @@ body::-webkit-scrollbar {
 }
 
 .Home-film-img-appear{
-    animation: appear .4s forwards;
+    animation: appear .4s ease-in;
 }
 .Home-film-img img{
     width: 100%;
@@ -176,6 +176,7 @@ body::-webkit-scrollbar {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    transition: .3s;
 }
 .Home-film-item {
     padding:  8px;
@@ -192,8 +193,11 @@ body::-webkit-scrollbar {
 }
 
 
-.Home-film-item:hover{
+.Home-film-item:hover img{
    filter: brightness(75%);
+}
+.Home-film-item:hover .Home-film-name{
+    color: #007aff;
 }
 input.Search-film-input {
     width: 100%;
@@ -234,6 +238,11 @@ i.fas.fa-search.text-xl.icon-search {
     margin: 10px 0;
     cursor: pointer;
     transition: .3s;
+}
+
+.top-search-item img{
+    animation: appear .4s ease-in;
+    
 }
 
 .top-search-item:hover{

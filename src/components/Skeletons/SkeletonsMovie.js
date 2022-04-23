@@ -8,6 +8,7 @@ import "swiper/components/navigation/navigation.scss";
 
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Autoplay } from "swiper";
+import Shimmer from "./Shimmer";
 
 // install Swiper modules
 SwiperCore.use([Navigation, Autoplay]);
@@ -15,6 +16,7 @@ SwiperCore.use([Navigation, Autoplay]);
 function SkeletonsMovie(props) {
   return (
     <Swiper
+      className="animation-shimmer"
       navigation={true}
       modules={[Navigation]}
       breakpoints={{
@@ -23,11 +25,11 @@ function SkeletonsMovie(props) {
         },
         // when window width is >= 640px
         640: {
-          slidesPerView: 4,
+          slidesPerView: 3,
         },
         // when window width is >= 768px
         768: {
-          slidesPerView: 4,
+          slidesPerView: 3,
         },
         1023: {
           slidesPerView: 6,
@@ -75,6 +77,7 @@ function SkeletonsMovie(props) {
           </div>
         </div>
       </SwiperSlide>
+      <Shimmer></Shimmer>
     </Swiper>
   );
 }

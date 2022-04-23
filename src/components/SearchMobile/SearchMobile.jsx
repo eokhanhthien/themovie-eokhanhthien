@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import postSearchwithKeyWord from '../../api/postSearchwithKeyWord';
 import SkeletonsSearchFilm from '../Skeletons/SkeletonsSearchFilm';
 import "./SearchMobile.css"
+import { horizontalSize } from '../Functional/horizontalSize';
 
 function SearchMobile(props) {
     
@@ -81,7 +82,7 @@ function handleOpenModalHome() {
             <div className="Home-film-item-search ">
                 <NavLink to={`/DetailVideo/${item.id}/${item.domainType}`}>
                 <div className="Home-film-img">
-               {dataSearchTerm && <img src={item.coverVerticalUrl} alt="" />}
+               {dataSearchTerm && <img src={horizontalSize(item.coverVerticalUrl,168,220)} alt="" />}
                 </div>
                 </NavLink>
                 <div className="Home-film-name">

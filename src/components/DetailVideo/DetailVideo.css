@@ -43,8 +43,9 @@
 }
 .video-container{
     width: 100%;
-    height: 706px;
-    background-color: #1F2937;
+    animation: appear .4s ease-in;
+    /* height: 706px;
+    background-color: #1F2937; */
 }
 
 .video-container img{
@@ -58,6 +59,7 @@
 
 .watch-img img{
     width: 100%;
+    animation: appear .4s ease-in;
 }
 
 .Similar-container {
