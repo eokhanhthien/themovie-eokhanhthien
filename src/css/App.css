@@ -108,6 +108,7 @@ body::-webkit-scrollbar {
 }
 
 
+
 .Home-film-img-actor{
     width: 100%;
 }
@@ -117,13 +118,25 @@ body::-webkit-scrollbar {
     border-top-right-radius: 8px;
     object-fit: contain;
 }
+@keyframes appear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
 
+.Home-film-img-appear{
+    animation: appear .4s forwards;
+}
 .Home-film-img img{
     width: 100%;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     height: 100%;
     object-fit: cover;
+
 }
 
 

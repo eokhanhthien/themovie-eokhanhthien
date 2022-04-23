@@ -18,6 +18,7 @@ import SkeletonsTopsearch from '../Skeletons/SkeletonsTopsearch';
 import MovieItem from './MovieItem';
 import { NavLink } from 'react-router-dom';
 
+import { horizontalSize } from '../Functional/horizontalSize';
 
 // install Swiper modules
 SwiperCore.use([Navigation,Autoplay]);
@@ -34,6 +35,7 @@ function Home(props) {
     const [homeDarkFairyTales,sethomeDarkFairyTales] = useState([]);
     const [homeNewestReleases,sethomeNewestReleases] = useState([]);
     const [topSearchhome,settopSearchhome] =useState([]);
+    const [vd,setvd] =useState([]);
 
 
 
@@ -54,7 +56,7 @@ function Home(props) {
             let topSearch = await getHome.getAll("/search/v1/searchLeaderboard")
 
             if(dataHome){
-
+              setvd(dataHome)
               dataHome.recommendItems.forEach(e => {
                 if(e.homeSectionType === "BANNER"){
                   sethomeBanner(e.recommendContentVOList)
@@ -70,7 +72,7 @@ function Home(props) {
                 else if(e.homeSectionName === "Movie Selection"){
                   sethomeDarkFairyTales(e.recommendContentVOList)
                 }
-                else if(e.homeSectionName === "Top Picks on Loklok"){
+                else if(e.homeSectionName === "Lolita Complex" ? "Lolita Complex" : "Hot K-Drama"){
                   sethomeNewestReleases(e.recommendContentVOList)
                 }
               });
@@ -110,7 +112,7 @@ function handleOpenModalHome() {
   setIsActiveModal(!isActiveModal)
 }
 
-// console.log(test)
+console.log(vd)
     return (
         <div className="Home">
  
@@ -146,7 +148,7 @@ function handleOpenModalHome() {
        {isLoading ? <Swiper  className="Home-banner" navigation={true} modules={[Navigation]}>
             {
                  homeBanner.map((item,index)=>{
-                    return (<SwiperSlide key={index}><img src={item.imageUrl} alt="" /></SwiperSlide>);
+                    return (<SwiperSlide key={index}><img src={horizontalSize(item.imageUrl,1189,520)} alt="" /></SwiperSlide>);
                 })
             }
       </Swiper>:<SkeletonsBanner></SkeletonsBanner>}
@@ -165,13 +167,13 @@ function handleOpenModalHome() {
               },
               // when window width is >= 640px
               640: {
-                slidesPerView: 2,
+                slidesPerView: 3,
               },
               // when window width is >= 768px
               768: {
                 slidesPerView: 3,
               },
-              1023: {
+              1025: {
                 slidesPerView: 6,
               },
             }}>

@@ -4,6 +4,8 @@ import postSearchwithKeyWord from '../../api/postSearchwithKeyWord';
 import SkeletonsSearchFilm from '../Skeletons/SkeletonsSearchFilm';
 import "./SearchFilm.css"
 import "../DetailVideo/DetailVideo.css"
+import { horizontalSize } from '../Functional/horizontalSize';
+
 function SearchFilm(props) {
     const {keyword} = useParams();
     const [dataSearchTerm, setDataSearchTerm] = useState();
@@ -47,7 +49,7 @@ function SearchFilm(props) {
             <div className="Home-film-item-search ">
                 <NavLink to={`/DetailVideo/${item.id}/${item.domainType}`}>
                 <div className="Home-film-img">
-               {dataSearchTerm && <img src={item.coverVerticalUrl} alt="" />}
+               {dataSearchTerm && <img src={horizontalSize(item.coverVerticalUrl,166,220)} alt="" />}
                 </div>
                 </NavLink>
                 <div className="Home-film-name">

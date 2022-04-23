@@ -3,6 +3,7 @@ import "./DetailVideo.css"
 import { NavLink, useParams } from "react-router-dom";
 import getDetail from '../../api/getDetail';
 import SkeletonsLikeList from '../Skeletons/SkeletonsLikeList';
+import { horizontalSize } from '../Functional/horizontalSize';
 
 function WatchMovie(props) {
   const { id, category } = useParams();
@@ -66,7 +67,7 @@ function WatchMovie(props) {
         </div>
         <div className="watchMovie-content row ">
           <div className="col l-9 m-12 c-12">
-           {isLoading ? <div className="video-container" ><img src={dataDetail.coverHorizontalUrl} alt="" /></div> : <div className="img-Detail-Skeleton" ></div>}
+           {isLoading ? <div className="video-container" ><img src={horizontalSize(dataDetail.coverHorizontalUrl,1256,706)} alt="" /></div> : <div className="img-Detail-Skeleton" ></div>}
           </div>
           <div className="col l-3 m-12 c-12 ">
             <div className="Home-title-detail">Similar to this</div>
@@ -77,7 +78,7 @@ function WatchMovie(props) {
           <NavLink to={`/DetailVideo/${item.id}/${item.category}`}>  
             <div className="row no-gutters">
               <div className="watch-img col l-3">
-                <img src={item.upImgUrl} alt="" />
+                <img src={horizontalSize(item.upImgUrl,84,84)} alt="" />
               </div>
               <div className="Similar col l-9">{item.upName} <div className="row no-gutters"><div className="video-Star"><img src="../../image/star.png" alt="" /></div> <div className="video-point"> {item.score}</div> </div> </div>
             </div>
