@@ -32,7 +32,7 @@ function MovieItem(props) {
         <div className="Home-film-item ">
         <NavLink to={`/DetailVideo/${props.id}/${props.category}`}>
         <div className="Home-film-img">
-         {props.imageUrl && <img className='img-thumnail' src="../image/img-lazy.png" alt={horizontalSize(props.imageUrl,183,242)}  ref={imgRef} />}
+         {props.imageUrl && <img className='img-thumnail' src="../image/img-lazy.png" alt={horizontalSize(props.imageUrl,366,484)}  ref={imgRef} />}
         </div>
         </NavLink>
         <div className="Home-film-name">

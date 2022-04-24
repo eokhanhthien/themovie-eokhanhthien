@@ -28,7 +28,7 @@ function SearchFilmItem(props) {
             <div className="Home-film-item-search ">
                 <NavLink to={`/DetailVideo/${props.id}/${props.domainType}`}>
                 <div className="Home-film-img">
-               {props && <img src="../image/img-lazy.png" alt={horizontalSize(props.coverVerticalUrl,166,220)} ref={imgRef} />}
+               {props && <img src="../image/img-lazy.png" alt={horizontalSize(props.coverVerticalUrl,332,440)} ref={imgRef} />}
                 </div>
                 </NavLink>
                 <div className="Home-film-name">
