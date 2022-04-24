@@ -117,7 +117,7 @@ function WatchMovie(props) {
     }
 
     <div className="Warning-video">Nếu sau 15s không tải được phim, vui lòng nhấn vào <button onClick={()=>handleReload()}>Reload</button></div>
-    {dataDetail ? <div className="name-Video">{`${dataDetail.aliasName} tập ${subtitleCurrent+1}`}</div>:<div className="text-Name-detail-skeletons" ></div>}
+    {dataDetail ? <div className="name-Video">{dataDetail.name}</div>:<div className="text-Name-detail-skeletons" ></div>}
     
     <div className='Episodes-title'>Episodes</div>
     <div className="row sm-gutter">

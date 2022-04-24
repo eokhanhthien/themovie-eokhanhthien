@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom';
 import postSearchwithKeyWord from '../../api/postSearchwithKeyWord';
 import SkeletonsSearchFilm from '../Skeletons/SkeletonsSearchFilm';
 import "./SearchMobile.css"
-import { horizontalSize } from '../Functional/horizontalSize';
-
+import SearchFilmItem from '../SearchFilm/SearchFilmItem';
+import "../DetailVideo/DetailVideo.css"
 function SearchMobile(props) {
     
     const typingTimeoutRef = useRef(null)
     const [searchTerm, setSearchTerm] = useState('');
     const [dataSearchTerm, setDataSearchTerm] = useState();
+    const [isLoading, setIsLoading] = useState(true);
 
 
     const [isSearch, setisSearch] = useState(true);
@@ -17,11 +18,14 @@ function SearchMobile(props) {
 
     useEffect(()=>{
         (async function() {
+          setIsLoading(false)
           let dataSearch= await postSearchwithKeyWord.postSearchwithKeyWord({
             searchKeyWord:searchTerm ,
         })
         if(dataSearch){
           setDataSearchTerm(dataSearch.data.data)
+          setIsLoading(true)
+
         }
         }
         )()
@@ -76,20 +80,15 @@ function handleOpenModalHome() {
             
 
         <div className='row'>
-        {dataSearchTerm ? dataSearchTerm.searchResults.map((item,index)=>{
+        {isLoading ? dataSearchTerm.searchResults.map((item,index)=>{
             return (
-            <div key={index} className="col l-1-33 m-3 c-6">
-            <div className="Home-film-item-search ">
-                <NavLink to={`/DetailVideo/${item.id}/${item.domainType}`}>
-                <div className="Home-film-img">
-               {dataSearchTerm && <img src={horizontalSize(item.coverVerticalUrl,168,220)} alt="" />}
-                </div>
-                </NavLink>
-                <div className="Home-film-name">
-                {item.name}
-                </div>
-            </div>
-            </div>)
+            <SearchFilmItem key={index}
+            id={item.id}
+            domainType={item.domainType}
+            coverVerticalUrl={item.coverVerticalUrl}
+            name={item.name}
+            ></SearchFilmItem>
+            )
         }) : [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((item,index1)=>{
             return (
                 <SkeletonsSearchFilm key={index1}></SkeletonsSearchFilm>

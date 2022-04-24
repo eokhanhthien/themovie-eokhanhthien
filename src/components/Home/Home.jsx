@@ -36,7 +36,7 @@ function Home(props) {
     const [homeDarkFairyTales,sethomeDarkFairyTales] = useState([]);
     const [homeNewestReleases,sethomeNewestReleases] = useState([]);
     const [topSearchhome,settopSearchhome] =useState([]);
-    const [vd,setvd] =useState([]);
+
 
 
 
@@ -57,7 +57,7 @@ function Home(props) {
             let topSearch = await getHome.getAll("/search/v1/searchLeaderboard")
 
             if(dataHome){
-              setvd(dataHome)
+   
               dataHome.recommendItems.forEach(e => {
                 if(e.homeSectionType === "BANNER"){
                   sethomeBanner(e.recommendContentVOList)
@@ -113,7 +113,7 @@ function handleOpenModalHome() {
   setIsActiveModal(!isActiveModal)
 }
 
-console.log(vd)
+
     return (
         <div className="Home">
  

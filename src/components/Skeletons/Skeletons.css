@@ -103,7 +103,7 @@
     height: 100%;
     animation: loading 3s infinite;
     overflow: hidden;
-    z-index: 100;
+    z-index: 9;
 }
 .shimmer{
     width: 50%;

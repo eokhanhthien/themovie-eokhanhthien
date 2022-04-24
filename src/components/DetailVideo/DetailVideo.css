@@ -169,8 +169,11 @@
 }
 
 .btn-watch-now button {
-    padding: 6px;
+    padding: 12px;
     cursor: pointer;
+}
+.Button-of-mobile{
+  display: none;
 }
 .watchMovie-header a{
     text-decoration: none;
@@ -190,4 +193,7 @@ margin-bottom: 6px;
 }
 .watch-item:hover{
     filter: brightness(75%);
+}
+.btn-watch-now-of-mobile{
+    display: none;
 }

@@ -47,7 +47,7 @@ function WatchMovie(props) {
   },500)
   }
 
-  // console.log(dataDetail)
+  console.log(dataDetail)
   // console.log(category,id,episodeId,definition)
     return (
         <div className="watchMovie-Container">
@@ -69,6 +69,44 @@ function WatchMovie(props) {
           <div className="col l-9 m-12 c-12">
            {isLoading ? <div className="video-container" ><img src={horizontalSize(dataDetail.coverHorizontalUrl,1256,706)} alt="" /></div> : <div className="img-Detail-Skeleton" ></div>}
           </div>
+
+          <div className="Button-of-mobile">
+       
+        <div className="btn-watch-now">
+        <NavLink to={`/WatchMovie/${id}/${category}/${episodeId}/${definition}`}> <button>WATCH NOW</button> </NavLink>
+        </div>
+       {isLoading ? <div className="name-Video">{dataDetail.name}</div>:<div className="text-Name-detail-skeletons" ></div>}
+        <div className="row no-gutters"> 
+          <div className="row no-gutters">
+            <div className="video-Star"><img src="../../image/star.png" alt="" /></div>
+           {dataDetail && <div className="video-point"> {dataDetail.score}</div> }  
+          </div>
+          <div className="row no-gutters">
+            <div className="video-Star m-l-20px"><img src="../../image/calendar.png" alt="" /></div>
+           {dataDetail && <div className="video-point"> {dataDetail.year}</div>   }
+          </div>
+        </div>
+
+        <div className="tags-video row no-gutters">
+          {
+            dataDetail && dataDetail.tagNameList.map((item,index)=>{
+              return (<div key={index} className="tag-item">{item}</div>)
+            })
+          }
+       
+        </div>
+        <div className="row col l-9">
+          {dataDetail && <div className="description-video">{dataDetail.introduction}</div>}
+          <div className="comment-video">Comment</div>
+          <div className="row no-gutters border-commnet">
+            <div className="user-img-commnet"><img src="../../image/default-avatar.png" alt="" /></div>
+            <div className="user-img-commnet-text"> You need to Sign in to comment</div>   
+          </div>
+        </div>
+
+        </div>
+
+
           <div className="col l-3 m-12 c-12 ">
             <div className="Home-title-detail">Similar to this</div>
            <div className='Similar-container'>
@@ -95,10 +133,11 @@ function WatchMovie(props) {
 
           </div>
         </div>
+        <div className="Button-of-desktop">
         <div className="btn-watch-now">
         <NavLink to={`/WatchMovie/${id}/${category}/${episodeId}/${definition}`}> <button>WATCH NOW</button> </NavLink>
         </div>
-       {isLoading ? <div className="name-Video">{dataDetail.aliasName}</div>:<div className="text-Name-detail-skeletons" ></div>}
+       {isLoading ? <div className="name-Video">{dataDetail.name}</div>:<div className="text-Name-detail-skeletons" ></div>}
         <div className="row no-gutters"> 
           <div className="row no-gutters">
             <div className="video-Star"><img src="../../image/star.png" alt="" /></div>
@@ -125,6 +164,7 @@ function WatchMovie(props) {
             <div className="user-img-commnet-text"> You need to Sign in to comment</div>   
           </div>
         </div>
+      </div>
       </div>
       
     );

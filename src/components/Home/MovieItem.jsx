@@ -18,7 +18,7 @@ function MovieItem(props) {
       }
     })
 // console.log(img);
-    console.log(img.className) 
+// console.log(img.className) 
     if(img){ observer.observe(img)
     }
     return ()=>{
