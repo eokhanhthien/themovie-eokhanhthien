@@ -69,13 +69,15 @@ function Home(props) {
 
                 else if(e.homeSectionName === "Hot K-Drama"){
                   sethomeHotDrama(e.recommendContentVOList)
+                  sethomeNewestReleases(e.recommendContentVOList)
+
                 }
                 else if(e.homeSectionName === "Movie Selection"){
                   sethomeDarkFairyTales(e.recommendContentVOList)
                 }
-                else if(e.homeSectionName === "Lolita Complex" ? "Lolita Complex" : "Hot K-Drama"){
-                  sethomeNewestReleases(e.recommendContentVOList)
-                }
+                // else if(e.homeSectionName === "Hot K-Drama"){
+                //   sethomeNewestReleases(e.recommendContentVOList)
+                // }
               });
               SetisLoading(true);
             }

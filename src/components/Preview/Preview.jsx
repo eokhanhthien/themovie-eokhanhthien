@@ -3,38 +3,59 @@ import ReactHlsPlayer from 'react-hls-player/dist';
 import { NavLink } from 'react-router-dom';
 import "./Preview.css"
 import getPreview from '../../api/getPreview';
-// import getPreviewVideoMedia from '../../api/getPreviewVideoMedia';
+import getPreviewVideoMedia from '../../api/getPreviewVideoMedia';
+import "../DetailVideo/DetailVideo.css"
 
 function Preview(props) {
   const [dataPreview, setDataPreview] = useState();
-  // const [dataCallMedia, setdataCallMedia] = useState()
+  const [dataCallMedia, setdataCallMedia] = useState()
 
   const [isActiveModal, setIsActiveModal] = useState(false);
 
 
+  const [array, setArray] = useState([])
+
     useEffect(()=>{
       (async function() {
-         let dataPeoplePreview = await getPreview.getPreview({
+    try {     let dataPeoplePreview = await getPreview.getPreview({
           page:0
          })
-      if(dataPeoplePreview){
-        setDataPreview(dataPeoplePreview.data.data)
+        setDataPreview(dataPeoplePreview.data.data)    
 
-        
+        for(let i=0;i<3;i++ ){
+
+          let dataVideoMedia1 = await getPreviewVideoMedia.getPreviewVideoMedia({
+            category:dataPeoplePreview.data.data[i].category,
+            contentId: dataPeoplePreview.data.data[i].id,
+            episodeId: dataPeoplePreview.data.data[i].mediaInfo.id,
+            definition: dataPeoplePreview.data.data[i].mediaInfo.definitionList[0].code, 
+        })
+
+        // setArray([...array , dataVideoMedia1.data.data[0].mediaUrl])      Chỉ cập nhật lại
+
+        //Push vào array state
+        setArray(oldArray => [...oldArray, dataVideoMedia1.data.data[0].mediaUrl])        
       }
-      // if(dataPreview){
-      //   let dataVideoMedia = await getPreviewVideoMedia.getPreviewVideoMedia({
-      //     category:dataPreview[0].category,
-      //     contentId: dataPreview[0].id,
-      //     episodeId: dataPreview[0].mediaInfo.id,
-      //     definition: dataPreview[0].mediaInfo.definitionList[0].code, 
-      //   })
 
-      //   if(dataVideoMedia){
-      //     setdataCallMedia(dataVideoMedia)
-      //   }
-      // }
-         
+
+
+
+
+        let dataVideoMedia = await getPreviewVideoMedia.getPreviewVideoMedia({
+          category:dataPeoplePreview.data.data[0].category,
+          contentId: dataPeoplePreview.data.data[0].id,
+          episodeId: dataPeoplePreview.data.data[0].mediaInfo.id,
+          definition: dataPeoplePreview.data.data[0].mediaInfo.definitionList[0].code, 
+        })
+
+        if(dataVideoMedia){
+          setdataCallMedia(dataVideoMedia.data)
+        }
+
+         }
+         catch(e){
+          console.log(e)
+         }
       
       }
 
@@ -46,6 +67,8 @@ function Preview(props) {
     }
 
     // console.log(dataPreview);
+    // console.log(array[0]);
+
 
     return (
         <div className="Home">
@@ -93,10 +116,10 @@ function Preview(props) {
                           <div>{item.introduction}</div>
                          
                         </div>
-                        <div className="col l-10 m-10 c-10">
-                      <ReactHlsPlayer
+                        <div className="col l-10 m-10 c-10 video-custom-preview">
+                   {dataCallMedia  && array && <ReactHlsPlayer
                               poster={item.coverHorizontalUrl}
-                              // src={urlMedia.mediaUrl}
+                              src={array[index]}
                               autoPlay={false}
                               controls={true}
                               width="100%"
@@ -104,7 +127,7 @@ function Preview(props) {
                               crossOrigin="anonymous"
                             >
 
-                     </ReactHlsPlayer>
+                     </ReactHlsPlayer>}
                         </div>
                         <div className="col l-2 m-2 c-2 Preview_img_btn">
 
@@ -114,7 +137,7 @@ function Preview(props) {
                           </div>
 
                           <div className='Preview_img_btn_item'>
-                            <button><i className="fas fa-external-link-alt Preview_img_btn_item_opem"></i></button>
+                               <button><i className="fas fa-external-link-alt Preview_img_btn_item_opem"></i></button>
                                <div>Open</div> 
                           </div>
 

@@ -867,6 +867,9 @@ html, body{
 .Button-of-desktop{
   display: none;
 }
+.Preview_img_btn_item{
+  margin-top: 48px;
+}
 }
 /*Iphone(480 x 640)*/
 @media screen and (max-width: 320px) {

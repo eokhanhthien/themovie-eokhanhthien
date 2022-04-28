@@ -26,6 +26,10 @@ function SearchFilm(props) {
         )()
       },[keyword])
     
+      useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+     
     //   console.log(dataSearchTerm)
     return (
         <div className='searchFilm-Container'>

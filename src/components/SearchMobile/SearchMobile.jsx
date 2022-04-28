@@ -79,8 +79,8 @@ function handleOpenModalHome() {
                 </div>
             
 
-        <div className='row'>
-        {isLoading && dataSearchTerm ? dataSearchTerm.searchResults.map((item,index)=>{
+       {isLoading && <div className='row'>
+        {  dataSearchTerm ? dataSearchTerm.searchResults.map((item,index)=>{
             return (
             <SearchFilmItem key={index}
             id={item.id}
@@ -96,7 +96,7 @@ function handleOpenModalHome() {
         })
 
         }
-        </div>
+        </div>}
 
 
             </div>

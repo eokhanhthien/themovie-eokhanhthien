@@ -11,6 +11,7 @@ import {
 // import SearchFilm from './SearchFilm/SearchFilm';
 // import Preview from './Preview/Preview';
 // import SearchMobile from './SearchMobile/SearchMobile';
+import Loading from './Loading/Loading';
 const Home = React.lazy(() => import('./Home/Home'));
 const DetailVideo = React.lazy(() => import('./DetailVideo/DetailVideo.jsx'));
 const WatchMovie = React.lazy(() => import('./WatchMovie/WatchMovie'));
@@ -22,12 +23,12 @@ const SearchMobile = React.lazy(() => import('./SearchMobile/SearchMobile'));
 function dieuhuongURL(props) {
     return (
         <Routes>
-        <Route exact path="" element={ <Suspense fallback={<div>Loading...</div>}><Home></Home></Suspense>} />
-        <Route exact path="/Preview" element={<Suspense fallback={<div>Loading...</div>}><Preview></Preview></Suspense>} />
-        <Route exact path="/SearchMobile" element={<Suspense fallback={<div>Loading...</div>}><SearchMobile></SearchMobile></Suspense>} />
-        <Route exact path='/DetailVideo/:id/:category' element={<Suspense fallback={<div>Loading...</div>}><DetailVideo></DetailVideo></Suspense>} />
-        <Route exact path='/WatchMovie/:id/:category/:episodeId/:definition' element={<Suspense fallback={<div>Loading...</div>}><WatchMovie></WatchMovie></Suspense>} />
-        <Route exact path='/Search/:keyword' element={<Suspense fallback={<div>Loading...</div>}><SearchFilm></SearchFilm></Suspense>} />
+        <Route exact path="" element={ <Suspense fallback={<Loading/>}><Home></Home></Suspense>} />
+        <Route exact path="/Preview" element={<Suspense fallback={<Loading/>}><Preview></Preview></Suspense>} />
+        <Route exact path="/SearchMobile" element={<Suspense fallback={<Loading/>}><SearchMobile></SearchMobile></Suspense>} />
+        <Route exact path='/DetailVideo/:id/:category' element={<Suspense fallback={<Loading/>}><DetailVideo></DetailVideo></Suspense>} />
+        <Route exact path='/WatchMovie/:id/:category/:episodeId/:definition' element={<Suspense fallback={<Loading/>}><WatchMovie></WatchMovie></Suspense>} />
+        <Route exact path='/Search/:keyword' element={<Suspense fallback={<Loading/>}><SearchFilm></SearchFilm></Suspense>} />
         </Routes>
     );
 }

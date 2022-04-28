@@ -47,3 +47,13 @@
 i.fas.fa-external-link-alt.Preview_img_btn_item_opem {
     color: white;
 }
+
+.video-custom-preview{
+    width: 100%;
+    height: 100%;
+}
+
+.video-custom-preview video{
+    width: 100%;
+    height: 248px;
+}
