@@ -169,8 +169,11 @@
 }
 
 .btn-watch-now button {
-    padding: 12px;
+    padding: 6px;
     cursor: pointer;
+    font-size: 14px;
+    background-color: white;
+    border: none;
 }
 .Button-of-mobile{
   display: none;

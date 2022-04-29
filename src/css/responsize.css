@@ -870,6 +870,20 @@ html, body{
 .Preview_img_btn_item{
   margin-top: 48px;
 }
+.name-Video{
+  font-size: 24px !important;
+}
+
+.description-video,
+.video-point{
+  font-size: 14px !important;
+}
+.Similar{
+  font-size: 16px !important;
+}
+.Episodes-title{
+  font-size: 20px!important;
+}
 }
 /*Iphone(480 x 640)*/
 @media screen and (max-width: 320px) {
