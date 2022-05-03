@@ -100,11 +100,11 @@ function WatchMovie(props) {
             </div>
           </div>
         </div>
-
+{/* https://ezexpress.tk/ */}
 
      {urlMedia && dataDetail  ?  <ReactHlsPlayer
         poster={dataDetail.coverHorizontalUrl}
-        src={`https://ezexpress.tk/${urlMedia.mediaUrl}`}
+        src={` ${urlMedia.mediaUrl}`}
         autoPlay={false}
         controls={true}
         width="100%"
