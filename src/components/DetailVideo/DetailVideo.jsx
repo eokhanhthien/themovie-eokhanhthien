@@ -27,8 +27,7 @@ function WatchMovie(props) {
         setDefinition(getDataDetail.data.data.episodeVo[0].definitionList[0].code)
         setIsLoading(true)
       }
-      
-      
+ 
     })()   
   },[id])
 

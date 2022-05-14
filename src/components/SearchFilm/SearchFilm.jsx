@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { NavLink,useParams } from 'react-router-dom';
 import postSearchwithKeyWord from '../../api/postSearchwithKeyWord';
 import SkeletonsSearchFilm from '../Skeletons/SkeletonsSearchFilm';
@@ -11,6 +11,8 @@ function SearchFilm(props) {
     const {keyword} = useParams();
     const [dataSearchTerm, setDataSearchTerm] = useState();
     const [isLoading, setIsLoading] = useState(true);
+    const typingTimeoutRef = useRef(null)
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(()=>{
         (async function() {
@@ -29,6 +31,18 @@ function SearchFilm(props) {
       useEffect(() => {
         window.scrollTo(0, 0)
       }, [])
+
+      function handleSearchTermChange(e) {
+        if(typingTimeoutRef.current){
+          clearTimeout(typingTimeoutRef.current)
+        };
+      
+       typingTimeoutRef.current = setTimeout(()=>{
+          setSearchTerm(e.target.value)
+          // console.log(e.target.value)
+      },500)
+      }
+    
      
     //   console.log(dataSearchTerm)
     return (
@@ -39,12 +53,12 @@ function SearchFilm(props) {
          <div className="row no-gutters">
               <NavLink to="/"><div className="watchMovie-icon_film"><img src="../../image/icon.png" alt="" /> </div> </NavLink>  
               <NavLink to="/"> <div style={{fontWeight: 600, color: 'white', marginLeft: '12px', fontSize: '19px',lineHeight: '31px'}}>FilmHot</div> </NavLink>  
-         </div>
+            </div>
           </div>
           <div className="col l-6 m-6 c-6">
             <div className="Search-film-watch">
-              <input className="Search-film-input-watch" type="text" placeholder="Search..." />
-              <i className="fas fa-search text-xl icon-search" />
+              <input onChange={handleSearchTermChange} className="Search-film-input-watch" type="text" placeholder="Search..." />
+              <NavLink to={`/Search/${searchTerm}`}> <i className="fas fa-search text-xl icon-search" /></NavLink>
             </div>
           </div>
         </div>

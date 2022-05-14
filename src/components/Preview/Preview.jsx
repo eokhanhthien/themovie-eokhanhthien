@@ -137,7 +137,7 @@ function Preview(props) {
                           </div>
 
                           <div className='Preview_img_btn_item'>
-                               <button><i className="fas fa-external-link-alt Preview_img_btn_item_opem"></i></button>
+                          <NavLink to={`/DetailVideo/${item.refList[0].id}/${item.refList[0].category}`}> <button><i className="fas fa-external-link-alt Preview_img_btn_item_opem"></i></button></NavLink> 
                                <div>Open</div> 
                           </div>
 
