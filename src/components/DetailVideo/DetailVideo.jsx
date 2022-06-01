@@ -21,7 +21,8 @@ function WatchMovie(props) {
     (async function () {
       const getDataDetail = await getDetail.getDetail({id,category});
       setIsLoading(false)
-      if(getDataDetail){
+      console.log((getDataDetail.data)?.data.length )
+      if(getDataDetail ){
         setdataDetail(getDataDetail.data.data)
         setEpisodeId(getDataDetail.data.data.episodeVo[0].id)
         setDefinition(getDataDetail.data.data.episodeVo[0].definitionList[0].code)
@@ -88,7 +89,7 @@ function WatchMovie(props) {
 
         <div className="tags-video row no-gutters">
           {
-            dataDetail && dataDetail.tagNameList.map((item,index)=>{
+            dataDetail && dataDetail.tagNameList?.map((item,index)=>{
               return (<div key={index} className="tag-item">{item}</div>)
             })
           }
@@ -149,7 +150,7 @@ function WatchMovie(props) {
         </div>
         <div className="tags-video row no-gutters">
           {
-            dataDetail && dataDetail.tagNameList.map((item,index)=>{
+            dataDetail && dataDetail.tagNameList?.map((item,index)=>{
               return (<div key={index} className="tag-item">{item}</div>)
             })
           }

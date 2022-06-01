@@ -3,10 +3,9 @@ import {
     NavLink,
   } from "react-router-dom";
 import { horizontalSize } from '../Functional/horizontalSize';
-
+import { useDispatch } from "react-redux";
+import {addToHistory} from "../../reduxtoolkit/HistorySlide"
 function MovieItem(props) {
-
-  
   const imgRef = useRef()
   useEffect(()=>{
     const img = imgRef.current;
@@ -27,10 +26,19 @@ function MovieItem(props) {
     
   },[])
 
+
+  const dispatch = useDispatch();
+  function onAddToHistory(film) {
+    // props.onAddToCart(item);
+    dispatch(addToHistory(film))
+    
+}
+
+
   // console.log(horizontalSize(props.imageUrl,183,242))
     return (
-        <div className="Home-film-item ">
-        <NavLink to={`/DetailVideo/${props.id}/${props.category}`}>
+        <div onClick={()=>onAddToHistory(props)} className="Home-film-item ">
+        <NavLink  to={`/DetailVideo/${props.id}/${props.category}`}>
         <div className="Home-film-img">
          {props.imageUrl && <img className='img-thumnail' src="../image/img-lazy.png" alt={horizontalSize(props.imageUrl,366,484)}  ref={imgRef} />}
         </div>

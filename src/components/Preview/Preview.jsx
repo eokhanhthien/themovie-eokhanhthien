@@ -83,7 +83,7 @@ function Preview(props) {
             <div className="menu"> <NavLink to="/"><i className="fas fa-home text-xl " />Home</NavLink></div>
             <div className="menu active_navbar-left"> <NavLink to="/Preview"><i className="fas fa-compass text-xl " />Discovery</NavLink></div>
             <div className="menu"><i className="fas fa-desktop text-xl " />Explore</div>
-            <div className="menu"><i className="fas fa-history text-xl " />History</div>
+            <div className="menu"><NavLink to="/History"><i className="fas fa-history text-xl " />History</NavLink></div>
             <div className="menu mt-40px">PERSONAL</div>
             <div className="menu"><i className="fas fa-sign-in-alt text-xl" />Sign in</div>
           </div>
@@ -136,10 +136,10 @@ function Preview(props) {
                                <div>{item.likeCount}</div> 
                           </div>
 
-                          <div className='Preview_img_btn_item'>
+      {item.refList.length > 0  &&  <div className='Preview_img_btn_item'>
                           <NavLink to={`/DetailVideo/${item.refList[0].id}/${item.refList[0].category}`}> <button><i className="fas fa-external-link-alt Preview_img_btn_item_opem"></i></button></NavLink> 
                                <div>Open</div> 
-                          </div>
+                          </div>}
 
                         </div>
                     </div>

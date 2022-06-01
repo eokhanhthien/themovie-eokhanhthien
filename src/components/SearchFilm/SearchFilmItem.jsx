@@ -22,6 +22,7 @@ function SearchFilmItem(props) {
       }
       
     },[])
+  // console.log(props)
 
     return (
         <div  className="col l-1-33 m-3 c-6">

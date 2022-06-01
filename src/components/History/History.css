@@ -1,0 +1,29 @@
+.History-clean{
+    color: #0D90F3;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.info-empty-history{
+    text-align: center;
+    margin:40px 0;
+}
+.info-empty-history img{
+    width: 160px;
+    height: 160px;
+    margin-bottom: 18px;
+}
+
+.info-empty-text {
+    font-size: 23px;
+    color: white;
+    line-height: 40px;
+}
+
+.info-empty-custom-color a{
+    font-size: 23px;
+    color: #0D90F3;
+    line-height: 40px;
+    cursor: pointer;
+    text-decoration: none;
+}

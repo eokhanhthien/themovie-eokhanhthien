@@ -129,7 +129,7 @@ function handleOpenModalHome() {
             <div className="menu active_navbar-left"> <NavLink to="/"><i className="fas fa-home text-xl " />Home</NavLink></div>
             <div className="menu"><NavLink to="/Preview"><i className="fas fa-compass text-xl " />Discovery</NavLink></div>
             <div className="menu"><i className="fas fa-desktop text-xl " />Explore</div>
-            <div className="menu"><i className="fas fa-history text-xl " />History</div>
+            <div className="menu"><NavLink to="/History"><i className="fas fa-history text-xl " />History</NavLink></div>
             <div className="menu mt-40px">PERSONAL</div>
             <div className="menu"><i className="fas fa-sign-in-alt text-xl" />Sign in</div>
           </div>
