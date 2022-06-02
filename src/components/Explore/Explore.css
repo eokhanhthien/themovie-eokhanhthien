@@ -1,0 +1,24 @@
+.Explore-title {
+    color: white;
+    font-size: 18px;
+    margin-right: 16px;
+    cursor: pointer;
+    padding: 4px 0;
+}
+
+.Explore-title-active{
+    color: #1670F3 !important;
+    border-bottom: 2px solid #1670F3;
+}
+
+select.Filter-option {
+    padding: 8px 40px 8px 6px;
+    color: white;
+    background-color: #27282E;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    margin: 7px 7px 7px 0;
+}

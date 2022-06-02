@@ -12,7 +12,7 @@ function MovieItem(props) {
     const observer = new IntersectionObserver(entries =>{
       if(entries[0].isIntersecting){
         img.setAttribute("src",img.alt)
-      img.classList.add("Home-film-img-appear")
+        img.classList.add("Home-film-img-appear")
 
       }
     })

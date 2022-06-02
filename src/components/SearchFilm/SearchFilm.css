@@ -8,3 +8,64 @@
     padding: 28px 115px;
     height: 100%;
 }
+
+.jus-between{
+    margin: auto;
+}
+
+.Search-film-item-search {
+    /* padding: 20px 0px; */
+    cursor: pointer;
+    transition: .3s;
+    height: 284px;
+    width: 100%;
+    /* margin: 10px; */
+}
+
+.Search-film-img{
+    width: 100%;
+    height: 222px;
+    background-color: #1f2937;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    /* height: 90%; */
+}
+.Search-film-img img{
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+}
+
+.Search-film-name {
+    background-color: #1f2937;
+    color: white;
+    padding: 4px 8px 4px 8px;
+    font-size: 17.5px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    /* Thêm dấu 3 chấm cho text quá dài */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: .3s;
+}
+.Search-film-item:hover .Search-film-name{
+    color: #007aff;
+}
+
+@keyframes appearSearch {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.Search-film-img-appear{
+    animation: appearSearch 1.2s ease-in;
+}

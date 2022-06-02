@@ -4,7 +4,6 @@ import postSearchwithKeyWord from '../../api/postSearchwithKeyWord';
 import SkeletonsSearchFilm from '../Skeletons/SkeletonsSearchFilm';
 import "./SearchFilm.css"
 import "../DetailVideo/DetailVideo.css"
-import { horizontalSize } from '../Functional/horizontalSize';
 import SearchFilmItem from './SearchFilmItem';
 
 function SearchFilm(props) {
@@ -65,7 +64,7 @@ function SearchFilm(props) {
 
         <div className='Search-title-name'>{`Search result for "${keyword}"`}</div>
 
-        <div className='row'>
+        <div className='row jus-between'>
         {isLoading && dataSearchTerm ? dataSearchTerm.searchResults.map((item,index)=>{
             return (
             <SearchFilmItem key={index}

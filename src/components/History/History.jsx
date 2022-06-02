@@ -5,7 +5,7 @@ import SkeletonsSearchFilm from '../Skeletons/SkeletonsSearchFilm';
 import "../SearchFilm/SearchFilm.css"
 import "./History.css"
 import "../DetailVideo/DetailVideo.css"
-import { horizontalSize } from '../Functional/horizontalSize';
+
 // import SearchFilmItem from './SearchFilmItem';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -56,7 +56,8 @@ function History(props) {
 
       }
      
-      console.log(history.history)
+      // console.log(history.history)
+      
     return (
         <div className='searchFilm-Container'>
           
@@ -75,9 +76,9 @@ function History(props) {
           </div>
         </div>
 
-        <div className="row">
-            <div className="Search-title-name col l-11">Watch history</div>
-            <div onClick = {()=>handleRemoveLocalHistory()} className="History-clean col l-1"><i className="fas fa-trash"></i> Clear</div>
+        <div className="row no-gutters">
+            <div className="Search-title-name col l-11 m-10 c-10">Watch history</div>
+            <div onClick = {()=>handleRemoveLocalHistory()} className="History-clean col l-1 m-2 c-2"><i className="fas fa-trash"></i> Clear</div>
         </div>
 
 {history.history.length >0 ? <div className='row'>
@@ -90,7 +91,7 @@ function History(props) {
             name={item.title}
             ></SearchFilmItem>
             )
-        }) : [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((item,index1)=>{
+        }).reverse() : [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((item,index1)=>{
             return (
                 <SkeletonsSearchFilm key={index1}></SkeletonsSearchFilm>
             )

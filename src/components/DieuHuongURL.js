@@ -20,6 +20,7 @@ const SearchFilm = React.lazy(() => import('./SearchFilm/SearchFilm'));
 const Preview = React.lazy(() => import('./Preview/Preview'));
 const SearchMobile = React.lazy(() => import('./SearchMobile/SearchMobile'));
 const History = React.lazy(() => import('./History/History'));
+const Explore = React.lazy(() => import('./Explore/Explore'));
 
 
 function dieuhuongURL(props) {
@@ -32,6 +33,7 @@ function dieuhuongURL(props) {
         <Route exact path='/WatchMovie/:id/:category/:episodeId/:definition' element={<Suspense fallback={<Loading/>}><WatchMovie></WatchMovie></Suspense>} />
         <Route exact path='/Search/:keyword' element={<Suspense fallback={<Loading/>}><SearchFilm></SearchFilm></Suspense>} />
         <Route exact path='/History' element={<Suspense fallback={<Loading/>}><History></History> </Suspense>} />
+        <Route exact path='/Explore' element={<Suspense fallback={<Loading/>}><Explore></Explore> </Suspense>} />
         </Routes>
     );
 }

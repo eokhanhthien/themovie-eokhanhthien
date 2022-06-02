@@ -73,6 +73,9 @@ body::-webkit-scrollbar {
 .mt-40px{
     margin-top:40px;
 }
+.mt-20px{
+    margin-top:20px;
+}
 .Home-banner{
     aspect-ratio: 16/7;
 
@@ -128,7 +131,7 @@ body::-webkit-scrollbar {
 }
 
 .Home-film-img-appear{
-    animation: appear .4s ease-in;
+    animation: appear .8s ease-in;
 }
 .Home-film-img img{
     width: 100%;

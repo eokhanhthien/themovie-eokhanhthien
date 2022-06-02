@@ -21,7 +21,6 @@ function WatchMovie(props) {
     (async function () {
       const getDataDetail = await getDetail.getDetail({id,category});
       setIsLoading(false)
-      console.log((getDataDetail.data)?.data.length )
       if(getDataDetail ){
         setdataDetail(getDataDetail.data.data)
         setEpisodeId(getDataDetail.data.data.episodeVo[0].id)
