@@ -22,3 +22,9 @@ select.Filter-option {
     outline: none;
     margin: 7px 7px 7px 0;
 }
+
+.not-found-film {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}

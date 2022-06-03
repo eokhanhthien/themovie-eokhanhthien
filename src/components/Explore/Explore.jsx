@@ -17,6 +17,15 @@ function Explore(props) {
     const [searchTerm, setSearchTerm] = useState('');
 
     const [dataAllFilm, setdataAllFilm] = useState('');
+    const [searchConfig, setsearchConfig] = useState('');
+
+    // typeID la id cua loai phim , TV , anime .....
+    const [typeID, settypeID] = useState(2); 
+    const [paramFilter, setparamFilter] = useState("TV,SETI,MINISERIES,VARIETY,TALK,COMIC,DOCUMENTARY"); 
+
+
+     // typeIDFilters la id cua loai loc theo nuoc,thoi gian.....
+    const [typeIDFilters, settypeIDFilters] = useState("");
     
 
     useEffect(()=>{
@@ -49,23 +58,86 @@ function Explore(props) {
       },500)
       }
 
+      const [filters , setFilters]  = useState({
+              size: 50,
+              param: "",
+              area: "",
+              category: "",
+              year: "",
+              subtitles: "",
+              order: "up"
+            })
+
 
       useEffect(()=>{
         (async function() {
           setIsLoading(false)
-          let dataSearch= await postAdvancedSearch.postAdvancedSearch({
+          let allFilm= await postAdvancedSearch.postAdvancedSearch({
+            param:filters.param,
+            area:filters.area,
+            category:filters.category,
+            year:filters.year
         })
-        if(dataSearch){
-          setdataAllFilm(dataSearch.data.data.searchResults);
+        let Config= await postAdvancedSearch.getSearchConfig({
+        })
+        if(allFilm && Config){
+          setdataAllFilm(allFilm.data.data.searchResults);
+          setsearchConfig(Config.data.data)
           setIsLoading(true)
         }
         }
         )()
-      },[])
-      console.log(dataAllFilm)
+      },[filters])
+      // console.log(dataAllFilm)
+      // console.log(searchConfig)
 
 
 
+      
+
+      function SortFilm(id_sort_fiml,params) {
+        settypeID(id_sort_fiml)
+        setparamFilter(params)
+        setFilters({
+          ...filters,
+          param :params,
+        })
+      }
+
+      function handleSetFilters(id) {
+               settypeIDFilters(id)
+      }
+
+
+      function handleChange(e) {
+        if(typeIDFilters===4 || typeIDFilters===1 || typeIDFilters===7){
+          setFilters({
+            ...filters,
+            area: e.target.value,
+            param :paramFilter,
+          })
+        }
+        else if(typeIDFilters===5 || typeIDFilters===2 || typeIDFilters===8){
+          setFilters({
+            ...filters,
+            category: e.target.value,
+          })
+        }
+
+        else if(typeIDFilters===6 || typeIDFilters===3 || typeIDFilters===9){
+          setFilters({
+            ...filters,
+            year: e.target.value,
+          })
+        }
+      }
+
+// console.log(filters)
+// console.log(typeID)
+// console.log(paramFilter)
+// console.log(filters)
+
+      
     return (
         <div className='searchFilm-Container'>
           
@@ -85,78 +157,36 @@ function Explore(props) {
         </div>
 
         <div className="row no-gutters">
-            <div className="Explore-title Explore-title-active">TV Series</div>
+          {searchConfig.length > 0? searchConfig.map((item,index)=>{
+            return ( <div key={index} onClick={()=>SortFilm(item.id, item.params)} className={item.id===typeID ? "Explore-title Explore-title-active":"Explore-title"}>{item.name}</div>)
+          }) : null }
+
+            {/* <div className="Explore-title Explore-title-active">TV Series</div>
             <div className="Explore-title">Movie</div>
-            <div className="Explore-title">Anime</div>
+            <div className="Explore-title">Anime</div> */}
         </div>
 
-        <div className="row no-gutters mt-20px">
-          <select className='Filter-option' >
-            <option name="" id="">All regions</option>
-            <option name="" id="">America</option>
-            <option name="" id="">Korea</option>
-            <option name="" id="">U.K</option>
-            <option name="" id="">Japan</option>
-            <option name="" id="">Thailand</option>
-            <option name="" id="">Europe</option>
-            <option name="" id="">China</option>
-            <option name="" id="">India</option>
-            <option name="" id="">Australia</option>
-            <option name="" id="">Indonesia</option>
-            <option name="" id="">Other</option>
-          </select>
+        <div className="row no-gutters mt-mb-20px">
+          {/* Filter de loc ra Id va map long map de lap lien tuc */}
+        {searchConfig.length > 0? searchConfig.filter(item=> item.id === typeID).map((item1)=>{
+          return ( item1.screeningItems.map((item3,index)=>{
+             return (<select key={index} onClick={()=>handleSetFilters(item3.id)} onChange={handleChange}  className='Filter-option' >
+             {
+               item3.items.map((item4,index)=>{
+                 return ( <option key={index} className="option-filter" value={item4.params}  name="" id="">{item4.name}</option>)
+               })
+             }
+             
+           </select>)
+           }))
+        }
+          ) : null }
 
-          <select className='Filter-option' >
-            <option name="" id="">All Categories</option>
-            <option name="" id="">Drama</option>
-            <option name="" id="">Action</option>
-            <option name="" id="">Romance</option>
-            <option name="" id="">Fantasy</option>
-            <option name="" id="">Animation</option>
-            <option name="" id="">Suspense</option>
-            <option name="" id="">Sci-Fi</option>
-            <option name="" id="">Horror</option>
-            <option name="" id="">Comedy</option>
-            <option name="" id="">Crime</option>
-            <option name="" id="">Adventure</option>
-            <option name="" id="">Thriller</option>
-            <option name="" id="">Family</option>
-            <option name="" id="">Musical</option>
-            <option name="" id="">War</option>
-            <option name="" id="">LGBTQ</option>
-            <option name="" id="">Catastrophe</option>
-            <option name="" id="">Documentary</option>
-            <option name="" id="">other</option>
-          </select>
-
-        <select className='Filter-option' >
-            <option name="" id="">All Time Periods</option>
-            <option name="" id="">2022</option>
-            <option name="" id="">2021</option>
-            <option name="" id="">2020</option>
-            <option name="" id="">2019</option>
-            <option name="" id="">2018</option>
-            <option name="" id="">2017</option>
-            <option name="" id="">2011-2015</option>
-            <option name="" id="">2000-2010</option>
-            <option name="" id="">Before</option>
-          </select>
-
-
-          <select className='Filter-option' >
-            <option name="" id="">All Subtitles</option>
-            <option name="" id="">Manual Translation</option>
-          </select>
 
         
-
-          <select className='Filter-option' >
-            <option name="" id="">Recent</option>
-            <option name="" id="">Popularity</option>
-          </select>
         </div>
 
-        <div className='row jus-between'>
+        {dataAllFilm.length>0 ? <div className='row'>
         {isLoading && dataAllFilm ? dataAllFilm.map((item,index)=>{
             return (
             <SearchFilmItem key={index}
@@ -173,7 +203,7 @@ function Explore(props) {
         })
 
         }
-        </div>
+        </div> : <div className='not-found-film'>Nothing more to see</div>}
 
         </div>
     );

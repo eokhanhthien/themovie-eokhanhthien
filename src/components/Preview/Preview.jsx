@@ -108,8 +108,10 @@ function Preview(props) {
               <div key={index} className="col l-12 m-12 c-12">
                 <div className="Video_preview_item">
                     <div className="row no-gutters">
-                        <div className="Preview_img_title col l-1 m-1 c-1">
-                          <img src={item.upInfo.upImgUrl} alt="" />
+                        <div className=" col l-1 m-1 c-1">
+                          <div className="Preview_img_title">
+                             <img src={item.upInfo.upImgUrl} alt="" />
+                          </div>
                         </div>
                         <div className="Preview_img_name col l-11 m-11 c-11">
                           <div>{item.upInfo.upName}</div>

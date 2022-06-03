@@ -73,8 +73,8 @@ body::-webkit-scrollbar {
 .mt-40px{
     margin-top:40px;
 }
-.mt-20px{
-    margin-top:20px;
+.mt-mb-20px{
+    margin:20px 0;
 }
 .Home-banner{
     aspect-ratio: 16/7;
