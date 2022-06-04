@@ -8,6 +8,7 @@ import "../DetailVideo/DetailVideo.css"
 import SearchFilmItem from '../SearchFilm/SearchFilmItem';
 import "./Explore.css"
 import postAdvancedSearch from '../../api/postAdvancedSearch';
+import "../Skeletons/Skeletons.css"
 
 function Explore(props) {
     const {keyword} = useParams();
@@ -159,11 +160,7 @@ function Explore(props) {
         <div className="row no-gutters">
           {searchConfig.length > 0? searchConfig.map((item,index)=>{
             return ( <div key={index} onClick={()=>SortFilm(item.id, item.params)} className={item.id===typeID ? "Explore-title Explore-title-active":"Explore-title"}>{item.name}</div>)
-          }) : null }
-
-            {/* <div className="Explore-title Explore-title-active">TV Series</div>
-            <div className="Explore-title">Movie</div>
-            <div className="Explore-title">Anime</div> */}
+          }) : [0,1,2].map((item,index)=><div key={index} className="Explore-title-skeleton"></div>)  }
         </div>
 
         <div className="row no-gutters mt-mb-20px">
@@ -180,7 +177,7 @@ function Explore(props) {
            </select>)
            }))
         }
-          ) : null }
+          ) : [0,1,2,3,4].map((item,index)=><div key={index} className="Explore-title-skeleton-filter"></div>) }
 
 
         
@@ -194,6 +191,10 @@ function Explore(props) {
             domainType={item.domainType}
             coverVerticalUrl={item.coverVerticalUrl}
             name={item.name}
+
+            category={item.domainType}
+            imageUrl={item.coverVerticalUrl}
+            title={item.name}
             ></SearchFilmItem>
             )
         }) : [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((item,index1)=>{
@@ -206,7 +207,7 @@ function Explore(props) {
         </div> : <div className='not-found-film'>Nothing more to see</div>}
 
         </div>
-    );
+    )
 }
 
 export default Explore;

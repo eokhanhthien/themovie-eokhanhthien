@@ -16,7 +16,8 @@
 }
 
 .Preview_img_title img{
-    width: 100%;
+    width: 90%;
+    height: 90%;
     border-radius: 50%;
 
 }

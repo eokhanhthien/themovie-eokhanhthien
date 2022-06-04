@@ -34,6 +34,7 @@ function MovieItem(props) {
     
 }
 
+// console.log(props)
 
   // console.log(horizontalSize(props.imageUrl,183,242))
     return (

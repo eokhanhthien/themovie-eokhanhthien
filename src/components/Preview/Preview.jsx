@@ -5,6 +5,7 @@ import "./Preview.css"
 import getPreview from '../../api/getPreview';
 import getPreviewVideoMedia from '../../api/getPreviewVideoMedia';
 import "../DetailVideo/DetailVideo.css"
+import SkeletonsPreview from '../Skeletons/SkeletonsPreview';
 
 function Preview(props) {
   const [dataPreview, setDataPreview] = useState();
@@ -103,7 +104,7 @@ function Preview(props) {
           <div className="Preview-Container row no-gutters">
 
             {
-              dataPreview && dataPreview.map((item,index)=>{
+              dataPreview ? dataPreview.map((item,index)=>{
                 return (
               <div key={index} className="col l-12 m-12 c-12">
                 <div className="Video_preview_item">
@@ -148,7 +149,7 @@ function Preview(props) {
                 </div>
               </div>
                 )
-              })
+              }) : [0,1,2].map((item,index)=><SkeletonsPreview key={index}></SkeletonsPreview>) 
 
     
             }

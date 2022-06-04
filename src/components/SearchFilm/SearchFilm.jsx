@@ -62,7 +62,7 @@ function SearchFilm(props) {
           </div>
         </div>
 
-        <div className='Search-title-name'>{`Search result for "${keyword}"`}</div>
+        <div className='Search-title-name mt-mb-20px'>{`Search result for "${keyword}"`}</div>
 
         <div className='row jus-between'>
         {isLoading && dataSearchTerm ? dataSearchTerm.searchResults.map((item,index)=>{
@@ -72,6 +72,10 @@ function SearchFilm(props) {
             domainType={item.domainType}
             coverVerticalUrl={item.coverVerticalUrl}
             name={item.name}
+
+            category={item.domainType}
+            imageUrl={item.coverVerticalUrl}
+            title={item.name}
             ></SearchFilmItem>
             )
         }) : [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((item,index1)=>{

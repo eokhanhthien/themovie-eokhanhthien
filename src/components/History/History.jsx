@@ -77,7 +77,7 @@ function History(props) {
         </div>
 
         <div className="row no-gutters">
-            <div className="Search-title-name col l-11 m-10 c-10">Watch history</div>
+            <div className="Search-title-name mt-mb-20px col l-11 m-10 c-10">Watch history</div>
             <div onClick = {()=>handleRemoveLocalHistory()} className="History-clean col l-1 m-2 c-2"><i className="fas fa-trash"></i> Clear</div>
         </div>
 

@@ -3,6 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { horizontalSize } from '../Functional/horizontalSize';
 import "../DetailVideo/DetailVideo.css"
 import "./SearchFilm.css"
+
+import { useDispatch } from "react-redux";
+import {addToHistory} from "../../reduxtoolkit/HistorySlide"
+
 function SearchFilmItem(props) {
     const imgRef = useRef()
     useEffect(()=>{
@@ -24,9 +28,15 @@ function SearchFilmItem(props) {
     },[])
   // console.log(props)
 
+  const dispatch = useDispatch();
+  function onAddToHistory(film) {
+    // props.onAddToCart(item);
+    dispatch(addToHistory(film))   
+  }
+
     return (
         <div  className="col l-1-33 m-3 c-6">
-            <div className="Search-film-item-search ">
+            <div onClick={()=>onAddToHistory(props)} className="Search-film-item-search ">
                 <NavLink to={`/DetailVideo/${props.id}/${props.domainType}`}>
                 <div className="Search-film-img">
                {props && <img src="../image/img-lazy.png" alt={horizontalSize(props.coverVerticalUrl,180,240)} ref={imgRef} />}

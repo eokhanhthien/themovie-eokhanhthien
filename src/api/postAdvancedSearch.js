@@ -12,7 +12,7 @@ const postAdvancedSearch = {
             },
         });
         return axioGetAllFilm.post("https://ga-mobile-api.loklok.tv/cms/app/search/v1/search",{ 
-            "size": 350,
+            "size": 351,
             "params": `${param}`,
             "area": `${area}`,
             "category": `${category}`,
